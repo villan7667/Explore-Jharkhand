@@ -1,0 +1,544 @@
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,body {    
+    background-color: #ffffff;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.915);
+    position: fixed;  /* Fix navbar to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo a {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #7e47ff;
+    text-decoration: none;
+}
+
+.navbar .logo span {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #5d5d5d;
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.navbar nav ul li a {
+    padding: 0.5rem;
+    color: #1d1d1d;
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    color: #7e47ff;
+}
+.navbar nav ul li a.active {
+    color: #7e47ff; /* Highlight color */
+    font-weight: bold;
+    padding-bottom: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+/* Dropdown styling */
+.navbar .nav-links {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navbar .nav-links:hover .dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown li {
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.dropdown li:hover {
+    background-color: #7e47ff41;
+}
+
+/* User Logo Dropdown */
+.user-logo {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-logo img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 0.5rem;
+    top: 100%;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.user-logo:hover .user-dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.user-details {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    color: #333;
+    display: block;
+}
+
+.user-dropdown li {
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+    text-align: left;
+}
+
+.user-dropdown li a {
+    color: #1d1d1d;
+    text-decoration: none;
+}
+
+.user-dropdown li:hover {
+    background-color: #7e47ff41;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%; /* Adjust to make the menu narrower */
+        background-color: rgba(255, 255, 255, 0.915);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar nav ul.show {
+        display: flex;
+    }
+
+    .menu-button {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .menu-button div {
+        width: 25px;
+        height: 3px;
+        background-color: #8535fc;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+
+    .user-logo {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .user-dropdown {
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem;
+        top: 40px;
+        right: 10px;
+        width: 200px; /* Adjust user dropdown width */
+    }
+}
+
+
+/* History Section */
+.history {
+    max-width: 1800px;
+    margin-top: 4rem;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.history h1 {
+    margin-bottom: 10px;
+    color: #a454ff;
+    text-align: center;
+}
+.history p {
+    color: #5d5d5d;
+    text-align: center;
+}
+
+.history-sections {
+    display: grid;
+    color: #282828;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* General card styling for History Cards */
+.history-card {
+    background: #d8d8d8;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for all history cards */
+.history-card:hover {
+    transform: translateY(-5px);  /* Slight lift effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Darker shadow */
+}
+
+.history-card h2 {
+    color: #7b00ff;
+    margin-bottom: 10px;
+}
+
+
+.history-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.history-card li {
+    margin: 5px 0;
+}
+
+.history-card .history-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Purchased Items Section */
+.purchased-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.purchased-items {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.purchased-items h2 {
+    color: #9c2bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.purchased-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+.purchased-items .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.purchased-items .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.purchased-items .item-logo {
+    width: 60px;
+    height: 60px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    margin-right: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.purchased-items .item-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.purchased-items .item-details h3 {
+    margin-bottom: 5px;
+    color: #be64fa;
+}
+
+.purchased-items .item-details p {
+    color: #555;
+}
+/* Scrollable List with Hidden Scrollbar */
+.purchased-items ul,
+.history-card ul {
+    max-height: 250px; /* Adjust height based on your preference */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Add space for scrollbar */
+}
+
+/* Customize scrollbar */
+.purchased-items ul::-webkit-scrollbar,
+.history-card ul::-webkit-scrollbar {
+    width: 5px; /* Set width of the scrollbar */
+}
+
+.purchased-items ul::-webkit-scrollbar-thumb,
+.history-card ul::-webkit-scrollbar-thumb {
+    background-color: #9c2bff; /* Scrollbar color */
+    border-radius: 10px; /* Rounded corners for the scrollbar */
+}
+
+.purchased-items ul::-webkit-scrollbar-thumb:hover,
+.history-card ul::-webkit-scrollbar-thumb:hover {
+    background-color: #be64fa; /* Hover color for the scrollbar */
+}
+
+.purchased-items ul::-webkit-scrollbar-track,
+.history-card ul::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Scrollbar track color */
+    border-radius: 10px;
+}
+
+/* Hide scrollbar but keep scrolling functional */
+.purchased-items ul {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #9c2bff #f1f1f1; /* Thumb and track color for Firefox */
+}
+
+.purchased-items ul::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.history-card ul {
+    scrollbar-width: thin;
+    scrollbar-color: #9c2bff #f1f1f1;
+}
+
+.history-card ul::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* Responsive Layout for Mobile View */
+@media (max-width: 768px) {
+    .purchased-section {
+        flex-direction: column; /* Stack purchased items section vertically */
+    }
+
+    .purchased-items {
+        margin-bottom: 20px;
+    }
+
+    .history-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .history-card .history-image {
+        height: 150px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background: linear-gradient(45deg, #7840fcc0, #8a58f5e1, #6b35ea96, #c086fffa); 
+    color: #f5f5f5;
+    padding: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 1.5rem;
+}
+
+/* Footer About Section */
+.footer-about h2 {
+    font-size: 1.8rem;
+    color: #000000;
+}
+
+.footer-about p {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Footer Links Section */
+.footer-links h3, 
+.footer-contact h3, 
+.footer-social h3 {
+    font-size: 1.2rem;
+    color: #00000090;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #000000;
+}
+
+/* Footer Contact Section */
+.footer-contact p, .footer-contact a {
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    text-decoration: none;
+    color: #ffffff;
+}
+.footer-contact a:hover{
+    color: #000000;
+}
+
+/* Social Media Icons */
+.footer-social a {
+    display: inline-block;
+    margin-right: 1rem;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+.footer-social img {
+    width: 30px;  
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #000000;
+    margin-top: 1rem;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    .footer-about, .footer-links, .footer-contact, .footer-social {
+        margin-bottom: 20px;
+    }
+    .footer-social a {
+        margin-right: 15px;
+    }
+}
+
+

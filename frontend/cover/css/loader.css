@@ -1,0 +1,74 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #101820; color: #fff; }
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loading-text {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.loading-text {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+
+span {
+    display: inline-block;
+    font-size: 2.5rem; /* Increased dot size */
+    margin: 0 3px; /* Space between dots */
+    animation: sine-wave 1.8s ease-in-out infinite;
+}
+
+span:nth-child(1) { animation-delay: 0s; color: aqua; }
+span:nth-child(2) { animation-delay: 0.2s; }
+span:nth-child(3) { animation-delay: 0.4s;color: aqua; }
+span:nth-child(4) { animation-delay: 0.6s; }
+span:nth-child(5) { animation-delay: 0.8s;color: aqua; }
+
+@keyframes sine-wave {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    50% { transform: translateY(-20px); }
+    75% { transform: translateY(-10px); }
+}
+
+.map-loader {
+    width: 120px;
+    height: 120px;
+    border: -1px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid rgb(152, 27, 255);
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+
+/* Particle Background */
+canvas#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+   
+}
+
+
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

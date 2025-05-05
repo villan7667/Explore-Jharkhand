@@ -1,0 +1,597 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,body {    
+    background-color: #ffffff;
+    color: #333;
+    height: 100%;
+    overflow-x: hidden;
+   
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.915);
+    position: fixed;  /* Fix navbar to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures it's always above other elements */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styles */
+.navbar .logo a {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #7e47ff;
+    text-decoration: none;
+}
+
+.navbar .logo span {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #5d5d5d;
+}
+
+/* Navigation Links */
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.navbar nav ul li a {
+    padding: 0.5rem;
+    color: #1d1d1d;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    color: #7e47ff;
+}
+.navbar nav ul li a.active {
+  color: #7e47ff; /* Highlight color */
+  font-weight: bold;
+  padding-bottom: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown Menu */
+.navbar .nav-links {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navbar .nav-links:hover .dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown li {
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.dropdown li:hover {
+    background-color: #7e47ff41;
+}
+
+/* User Logo Dropdown */
+.user-logo {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-logo img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 0.5rem;
+    top: 100%;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.user-logo:hover .user-dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.user-details {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    color: #333;
+    display: block;
+}
+
+.user-dropdown li {
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+    text-align: left;
+}
+
+.user-dropdown li a {
+    color: #1d1d1d;
+    text-decoration: none;
+}
+
+.user-dropdown li:hover {
+    background-color: #7e47ff41;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Place below the navbar */
+        right: 0;
+        width: 70%; /* Adjust width for better visibility */
+        background-color: rgba(255, 255, 255, 0.915);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar nav ul.show {
+        display: flex;
+    }
+
+    .menu-button {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .menu-button div {
+        width: 25px;
+        height: 3px;
+        background-color: #8535fc;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+
+    .user-logo {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .user-dropdown {
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem;
+        top: 40px;
+        right: 10px;
+        width: 200px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cart Section Styles */
+.cart-section {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cart-items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cart-item img {
+    max-width: 50px;
+    height: auto;
+    margin-right: 1rem;
+  }
+  
+  .cart-item .quantity {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-item .quantity button {
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-item .quantity button:hover {
+    background-color: #5b47d9;
+  }
+  
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cart-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cart-buttons button {
+  background-color: #6c5ce7;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 5px; /* This adds a 10px margin on the left and right of each button */
+}
+ 
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  
+  .cart-buttons button:first-child {
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-buttons button:hover {
+    background-color: #5b47d9;
+  }
+  
+  /* Product Grid Styles */
+  .products {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 2rem;
+  }
+  
+  .product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: 10rem;
+    border-radius: 4px;
+  }
+  
+  .product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6c5ce7;
+  }
+  
+  .add-to-cart {
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #5b47d9;
+  }
+  
+  /* Checkout Popup Styles */
+  .checkout-popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .checkout-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 80%;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #6c5ce7;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .pay-button {
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .pay-button:hover {
+    background-color: #5b47d9;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+    }
+  
+    .cart-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-items {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-item {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  
+    .cart-total {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-buttons {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-buttons button {
+      margin-bottom: 0.5rem;
+    }
+  
+    .products {
+      padding: 1rem;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background: linear-gradient(45deg, #7840fcc0, #8a58f5e1, #6b35ea96, #c086fffa); 
+    color: #f5f5f5;
+    padding: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 1.5rem;
+}
+
+/* Footer About Section */
+.footer-about h2 {
+    font-size: 1.8rem;
+    color: #000000;
+}
+
+.footer-about p {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Footer Links Section */
+.footer-links h3, 
+.footer-contact h3, 
+.footer-social h3 {
+    font-size: 1.2rem;
+    color: #00000090;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #000000;
+}
+
+/* Footer Contact Section */
+.footer-contact p, .footer-contact a {
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    text-decoration: none;
+    color: #ffffff;
+}
+.footer-contact a:hover{
+    color: #000000;
+}
+
+/* Social Media Icons */
+.footer-social a {
+    display: inline-block;
+    margin-right: 1rem;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+.footer-social img {
+    width: 30px;  
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #000000;
+    margin-top: 1rem;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    .footer-about, .footer-links, .footer-contact, .footer-social {
+        margin-bottom: 20px;
+    }
+    .footer-social a {
+        margin-right: 15px;
+    }
+}
+

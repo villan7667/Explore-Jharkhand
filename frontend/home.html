@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Jharkhand</title>
+    <link rel="icon" href="/frontend/assets/pic.svg" type="image/png">
+    <link rel="stylesheet" href="/frontend/cover/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="/frontendhttps://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo"><a href="#">Explore <span>Jharkhand</span></a></div>
+        <div class="menu-button" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="/frontend/home.html">Home</a></li>
+                <li><a href="/frontend/com/about.html">About</a></li>
+                <li><a href="/frontend/com/Service.html">Service</a></li>
+                <li class="nav-links"><a href="#">Places</a>
+                    <ul class="dropdown">
+                        <li><a href="/frontend/com/places/ranchi.html">Ranchi</a></li>
+                        <li><a href="/frontend/com/places/bokaro.html">Bokaro</a></li>
+                        <li><a href="/frontend/com/places/deoghar.html">Deoghar</a></li>
+                        <li><a href="/frontend/com/places/jamshedpur.html">Jamshedpur</a></li>
+                        <li><a href="/frontend/com/places/dhanbad.html">Dhanbad</a></li>
+                        <li><a href="/frontend/com/places/naterhart.html">Naterhart</a></li>
+                    </ul>
+                </li>
+                <li><a href="/frontend/com/contact.html">Contact</a></li>
+                <li class="user-logo">
+                    <a href="#">
+                        <img src="/frontend/assets/icon/user.png" alt="User Icon" />
+                    </a>
+                    <ul class="user-dropdown">
+                        <li><span class="user-details">Guest</span></li>
+                        <li><a href="/frontend/com/history.html">History</a></li>
+                        <li><a href="/frontend/com/cart.html">Cart</a></li>
+                        <li><a href="\frontend\auth\index.html" onclick="logoutUser()">Logout</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Carousel -->
+    <section 
+    div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img1.jpg">
+                <div class="content">
+                    <div class="author">HSGF</div>
+                    <div class="title">EXPLORE </div>
+                    <div class="topic">JHARKHAND</div>
+                    <div class="des">
+                        <!-- lorem 50 -->
+                         Jharkhand is not just a land of minerals but of memories, stories, and traditions deeply rooted in nature.In the heart of Jharkhand, you can feel the pulse of India’s ancient soul, thriving through its forests and people.
+                    </div>
+                        <!-- <button> H S G F </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img2.jpg">
+                <div class="content">
+                    <div class="author">HSGF</div>
+                    <div class="title">EXPLORE </div>
+                    <div class="topic">JHARKHAND</div>
+                    <div class="des">
+                        Jharkhand’s hills and valleys tell tales of resilience, where each stone and tree speaks of strength.
+                        The spirit of Jharkhand is in its simplicity, where nature and people live in harmony, bound by traditions.
+                    </div>
+                        <!-- <button> H S G F </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img3.jpg">
+                <div class="content">
+                    <div class="author">HSGF</div>
+                    <div class="title">EXPLORE </div>
+                    <div class="topic">JHARKHAND</div>
+                    <div class="des">
+                        From the vibrant festivals to the tribal songs, Jharkhand is a symphony of life that resonates with pride and heritage.
+                        Jharkhand’s beauty is raw, untamed, and powerful, just like the people who call it home.
+                        The land of forests and waterfalls, Jharkhand stands as a testament to the grandeur of nature and the resilience of its people.
+                    </div>
+                   
+                        <!-- <button> H S G F </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img4.jpg">
+                <div class="content">
+                    <div class="author">HSGF</div>
+                    <div class="title">EXPLORE </div>
+                    <div class="topic">JHARKHAND</div>
+                    <div class="des">
+                        In Jharkhand, every sunrise is a promise of hope, every sunset a celebration of survival against all odds.
+                        To walk through Jharkhand is to walk through a living museum of culture, history, and natural wonder.
+                    </div>
+                        <!-- <button> H S G F </button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- list thumnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Water Falls
+                    </div>
+                    <div class="description">
+                        The waterfalls of Jharkhand cascade gracefully
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img2.jpg">
+                <div class="content">
+                    <div class="title">
+                       Nature Beauty
+                    </div>
+                    <div class="description">
+                        Untouched forests and  picture of nature is wow.
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img3.jpg">
+                <div class="content">
+                    <div class="title">
+                     Sunset
+                    </div>
+                    <div class="description">
+                        The sky is set ablaze with hues of gold and crimson.
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/frontend\assets\home\slider\img4.jpg">
+                <div class="content">
+                    <div class="title">
+                       Mountains
+                    </div>
+                    <div class="description">
+                        Jharkhand’s towering hills stand tall,
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+    </section>
+    <!-- End of Carousel items -->
+
+    <!-- Places Grid -->
+    <section class="picture-grid">
+        <h2>Explore Places in Jharkhand</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="/frontend/assets/home/grid/bokaro.png" a="Place 1">
+              <h3>Bokaro</h3>
+                <p>Bokaro is famous for its large steel plant and Jawaharlal Nehru Biological Park.</p>
+            </div>
+            <div class="grid-item">
+                <img src="/frontend/assets/home/grid/deoghar.jpg" alt="Place 2">
+                <h3>Deogarh</h3>
+                <p>Deoghar is famous for the Baidyanath Temple, one of the twelve Jyotirlingas.</p>
+            </div>
+            <div class="grid-item">
+                <img src="/frontend/assets/home/grid/dhanbad 1.jpg" alt="Place 3">
+                <h3>Dhanbad</h3>
+                <p> Dhanbad is renowned for its rich coal mines and picturesque dams.</p>
+            </div>
+            <div class="grid-item">
+                <img src="/frontend/assets/home/grid/jamshedpur.jpg" alt="Place 4">
+                <h3>Jamshedpur</h3>
+                <p>Jamshedpur is home to Tata Steel and is known for its planned infrastructure and lush Jubilee Park.</p>
+            </div>
+            <div class="grid-item">
+                <img src="/frontend/assets/home/grid/ranchi.jpg" alt="Place 5">
+                <h3>Ranchi</h3>
+                <p>The capital of Jharkhand, Ranchi is celebrated for its waterfalls, natural beauty, and tribal culture.</p>
+            </div>
+            <div class="grid-item">
+                <img src="/frontend/assets/home/grid/Netarhat.jpg" alt="Place 6">
+                <h3>Netarhat</h3>
+                <p>Netarhat is famous for its stunning sunrise and sunset views amidst serene landscapes.</p>
+            </div>
+            
+            <!-- Repeat grid-item for each place -->
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history">
+        <img src="/frontend/assets/home/jharkhand history.jpg " alt="History Image">
+        <div>
+            <h2>The History of Jharkhand</h2>
+            <p align="justify">Jharkhand, established in 2000, is celebrated for its natural beauty, waterfalls, forests, and tribal culture, making it a unique tourist destination. Historically, tribal communities like the Santhals and Mundas have preserved rich traditions that attract cultural tourism. Ranchi, once a British summer resort, and sites like Netarhat and Deoghar's Baidyanath Temple draw nature lovers and pilgrims alike. With government efforts to improve infrastructure and promote eco-tourism, Jharkhand is steadily growing as a destination that combines natural beauty with cultural heritage.</p>
+        </div>
+    </section>
+
+   <!-- Gallery Section -->
+   <section class="custom-gallery">
+    <h2>Explore Gallery</h2>
+    
+
+    <!-- Nature Section -->
+    <div class="custom-gallery-group">
+        <h3> Adventures</h3>
+        <div class="custom-gallery-container">
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Adventure 1.jpg" alt="Nature Image 1" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Adventure 2.jpg" alt="Nature Image 2" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Adventure 3.jpg" alt="Nature Image 3" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Adventure 4.jpg" alt="Nature Image 4" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+        </div>
+    </div>
+
+    <!-- Local Cuisine Section -->
+    <div class="custom-gallery-group">
+        <h3>Local Cuisines</h3>
+        <div class="custom-gallery-container">
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Local Cuisine 1.jpg" alt="Cuisine Image 1" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Local Cuisine 2.jpg" alt="Cuisine Image 2" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Local Cuisine 3.jpg" alt="Cuisine Image 3" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Local Cuisine 4.jpg" alt="Cuisine Image 4" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+           
+            
+        </div>
+    </div>
+
+    <!-- Heritage Section -->
+    <div class="custom-gallery-group">
+        <h3>Heritages</h3>
+        <div class="custom-gallery-container">
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Heritage1.jpg" alt="Heritage Image 1" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Heritage2.jpg" alt="Heritage Image 2" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Heritage3.jpg" alt="Heritage Image 3" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/Heritage4.jpg" alt="Heritage Image 4" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+           
+            
+        </div>
+    </div>
+
+    <!-- Events Section -->
+    <div class="custom-gallery-group">
+        <h3> Cultural Events</h3>
+        <div class="custom-gallery-container">
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/event1.png" alt="Event Image 1" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/event2.jpg" alt="Event Image 2" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/event3.png" alt="Event Image 3" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+            <div class="custom-gallery-item">
+                <img src="/frontend/assets/home/gallery/event4.png" alt="Event Image 4" class="custom-gallery-img" onclick="openModal(this)">
+            </div>
+          
+           
+        </div>
+    </div>
+
+    <!-- Modal for Image Preview -->
+    <div id="custom-gallery-modal" class="custom-gallery-modal">
+        <span class="custom-gallery-close" onclick="closeModal()">&times;</span>
+        <img class="custom-gallery-modal-content" id="custom-gallery-modal-img">
+        <div id="custom-gallery-caption"></div>
+        <button class="custom-gallery-prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="custom-gallery-next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+</section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h2>Traveler's Reviews</h2>
+            <button class="slider-btn prev-btn">&#10094;</button>
+        <div class="review-slider">
+            <div class="review-card">
+                <img src="/frontend/assets/home/visitor/reviewer1.png" alt="Reviewer Logo">
+                <h3>Ms. Aaradhya Sharma</h3>
+                <p>"Incredible experience visiting Jharkhand's famous sites!"</p>
+                <span>⭐⭐⭐⭐</span>
+            </div>
+            <div class="review-card">
+                <img src="/frontend/assets/home/visitor/reviewer2.png" alt="Reviewer Logo">
+                <h3>Mr. Arjun Gupta</h3>
+                <p>"A beautiful place with rich culture and friendly people!"</p>
+                <span>⭐⭐⭐</span>
+            </div>
+            <div class="review-card">
+                <img src="/frontend/assets/home/visitor/reviewer3.png" alt="Reviewer Logo">
+                <h3>Ms. Saanvi Mehta</h3>
+                <p>"A beautiful place with rich culture and friendly people!"</p>
+                <span>⭐⭐⭐⭐</span>
+            </div>
+            <div class="review-card">
+                <img src="/frontend/assets/home/visitor/reviewer4.png" alt="Reviewer Logo">
+                <h3>Ms. Anaya Iyer</h3>
+                <p>"Incredible experience visiting Jharkhand's famous sites!"</p>
+                <span>⭐⭐⭐⭐</span>
+            </div>
+            <div class="review-card">
+                <img src="/frontend/assets/home/visitor/reviewer1.png" alt="Reviewer Logo">
+                <h3>Ms. Ishani Verma</h3>
+                <p>"Incredible experience visiting Jharkhand's famous sites!"</p>
+                <span>⭐⭐⭐⭐⭐</span>
+            </div>
+            <!-- Repeat review-card for each review -->
+            <button class="slider-btn next-btn">&#10095;</button>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Footer Logo and Description -->
+        <div class="footer-about">
+            <h2>Explore Jharkhand</h2>
+            <p>Discover the beauty and heritage of Jharkhand, one district at a time. Let's explore the wonders of nature, culture, and history together.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/frontend/home.html">Home</a></li>
+                <li><a href="/frontend/home.html">Places</a></li>
+                <li><a href="/frontend/com/about.html">About</a></li>
+                <li><a href="/frontend/com/Service.html">Service</a></li>
+                <li><a href="/frontend/com/contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email : <a href="mailto:info@explorejharkhand.com">explorejharkhand@gmail.com</a></p>
+            <p>Phone : +91 7667985687</p>
+            <p>Location : Dhanbad, Jharkhand, India</p>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="https://www.facebook.com/explorejharkhand/" target="_blank"><img src="/frontend/assets/icon/facebook.png" alt="Facebook"></a>
+            <a href="https://twitter.com/visitjharkhand?lang=en" target="_blank"><img src="/frontend/assets/icon/twitter.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/jharkhandtourism/?hl=en"  target="_blank"><img src="/frontend/assets/icon/instagram.png" alt="Instagram"></a>
+            <a href="https://in.linkedin.com/company/government-of-jharkhand" target="_blank"><img src="/frontend/assets/icon/linkedin.png" alt="LinkedIn"></a>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Explore Jharkhand. All rights reserved.</p>
+    </div>
+</footer>
+
+    
+    
+    <script src="/frontend/cover/js/app.js"></script>
+    <script src="/frontend/cover/js/script.js"></script>
+</body>
+</html>
