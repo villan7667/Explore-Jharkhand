@@ -1,0 +1,152 @@
+/* Universal Footer Styling */
+.footer {
+    width: 100%;
+    background: linear-gradient(45deg, #7840fc, #8a58f5, #6b35ea, #c086ff);
+    color: #ffffff;
+    padding: 3rem 1.5rem 2rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    isolation: isolate;
+}
+
+.footer * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+/* Section Headings */
+.footer h2, .footer h3 {
+    color: #000000;
+    margin-bottom: 1rem;
+}
+
+/* About Section */
+.footer-about {
+    flex: 1 1 250px;
+}
+
+.footer-about p {
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #f0f0f0;
+}
+
+/* Links Section */
+.footer-links {
+    flex: 1 1 180px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #000000;
+}
+
+/* Contact Section */
+.footer-contact {
+    flex: 1 1 220px;
+    font-size: 0.95rem;
+    color: #f0f0f0;
+}
+
+.footer-contact p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #000000;
+}
+
+/* Social Icons Section */
+.footer-social {
+    flex: 1 1 180px;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 1rem;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer-social a:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-about, 
+    .footer-links, 
+    .footer-contact, 
+    .footer-social {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-social a {
+        margin-right: 10px;
+    }
+}

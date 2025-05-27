@@ -1,0 +1,156 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,body {    
+    background-color: #ffffff;
+    color: #333;
+    height: 100%;
+    overflow-x: hidden;
+   
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background: linear-gradient(45deg, #7840fcc0, #8a58f5e1, #6b35ea96, #c086fffa); 
+    color: #f5f5f5;
+    padding: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 1.5rem;
+}
+
+/* Footer About Section */
+.footer-about h2 {
+    font-size: 1.8rem;
+    color: #000000;
+}
+
+.footer-about p {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Footer Links Section */
+.footer-links h3, 
+.footer-contact h3, 
+.footer-social h3 {
+    font-size: 1.2rem;
+    color: #00000090;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #000000;
+}
+
+/* Footer Contact Section */
+.footer-contact p, .footer-contact a {
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    text-decoration: none;
+    color: #ffffff;
+}
+.footer-contact a:hover{
+    color: #000000;
+}
+
+/* Social Media Icons */
+.footer-social a {
+    display: inline-block;
+    margin-right: 1rem;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+.footer-social img {
+    width: 30px;  
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #000000;
+    margin-top: 1rem;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    .footer-about, .footer-links, .footer-contact, .footer-social {
+        margin-bottom: 20px;
+    }
+    .footer-social a {
+        margin-right: 15px;
+    }
+}
+

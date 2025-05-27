@@ -1,0 +1,332 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {    
+    height: 100%;
+    width: 100%; /* Ensure it takes full width */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+}
+
+
+
+
+/* Hero Section*/
+.hero-section {
+    position: relative;
+    width: 100vw; /* Ensure full width */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000;
+    overflow: hidden;
+}
+
+/* Video Container */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+/* Content Styling */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    padding: 2rem;
+    max-width: 800px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #9900ff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+/* Section Styling */
+section {
+    padding: 4rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    
+    margin: 0 ;
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+
+/* Gradients for Each Section */
+section:nth-child(3) {
+    background: linear-gradient(45deg, #a86deb, #9d98fa);
+}
+
+
+section:nth-child(5) {
+    background: linear-gradient(45deg, #a86deb, #9d98fa);
+}
+
+
+section:nth-child(7) {
+   background: linear-gradient(45deg, #a86deb, #9d98fa);
+}
+
+section:nth-child() {
+    background: linear-gradient(45deg, #a86deb, #9d98fa);
+}
+
+/* Section Image and Text Content */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+}
+
+
+.section-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    flex: 1;
+    
+    transition: transform 0.3s;
+}
+.section-image:hover {
+    transform: scale(1.05);
+}
+
+.text-content {
+    flex: 1;
+    
+}
+
+.text-content h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #54008b;
+    text-transform: uppercase;
+}
+
+.text-content p, .text-content ul {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.8;
+    color: #000000;
+}
+
+.text-content ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.text-content ul li {  
+    margin-bottom: 0.5rem;
+}
+
+/* Travel Planning Section */
+.travel-planning {
+   
+    text-align: left;
+}
+
+.travel-planning h2 {
+    color: #000000;
+}
+
+.travel-planning p {
+    color: #000000;
+}
+
+/* Impact and Benefits Section */
+.impact-benefits {
+    background: linear-gradient(45deg, #a86deb, #9d98fa);
+    text-align: left;
+}
+
+.impact-benefits h2 {
+    color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section-image {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Team Section */
+
+.team-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+.team-section h2 {
+    font-size: 2rem;
+    color: #5a34c8;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.team-section p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #333;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.team-card {
+    background: linear-gradient(to bottom, #b744ff, #3b116e);
+    border-radius: 10px;
+    max-width: 250px;
+    flex: 1 1 250px; 
+    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid white;
+}
+
+.team-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #d1c4e9;
+}
+
+.card-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-social-icons a img {
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
+    transition: transform 0.3s;
+}
+
+.card-social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) { /* Tablet */
+    .team-cards {
+        gap: 30px;
+    }
+    .team-card {
+        width: 220px;
+        padding: 25px;
+    }
+    .team-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .team-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .team-card {
+        width: 90%;
+        max-width: 300px;
+        padding: 20px;
+    }
+    .team-section h2 {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+
+
