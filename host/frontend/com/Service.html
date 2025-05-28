@@ -1,162 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service - Explore Jharkhand</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-
-    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">
     <link rel="icon" href="/frontend/assets/pic.png" type="image/png">
     <link rel="stylesheet" href="/frontend/cover/css/Service.css">
 </head>
+
 <body>
-    <!-- Navbar -->
-    <div id="navbar"></div>
- <!-- Hero Section with Image Slider -->
- <section class="hero">
-    <div class="slider-container">
-        <div class="slide active">
-            <img src="/frontend/assets/service/img/hero1.jpeg" alt="Jharkhand Landscape 1">
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">Explore <span>Jharkhand</span></a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/frontend/home.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/Service.html">Service</a>
+                    </li>
+
+                    <!-- Places Dropdown -->
+                    <li class="nav-links dropdown-parent">
+                        <a href="#" class="dropdown-trigger">
+                            Places
+                            <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="/frontend/com/places/ranchi.html">Ranchi</a></li>
+                            <li><a href="/frontend/com/places/bokaro.html">Bokaro</a></li>
+                            <li><a href="/frontend/com/places/deoghar.html">Deoghar</a></li>
+                            <li><a href="/frontend/com/places/jamshedpur.html">Jamshedpur</a></li>
+                            <li><a href="/frontend/com/places/dhanbad.html">Dhanbad</a></li>
+                            <li><a href="/frontend/com/places/naterhart.html">Neterhat</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/frontend/com/contact.html">Contact</a>
+                    </li>
+
+                    <!-- User Dropdown -->
+                    <li class="user-logo dropdown-parent">
+                        <a href="#" class="user-trigger">
+                            <img src="/frontend/assets/icon/user.png" alt="User Icon" />
+                        </a>
+                        <ul class="user-dropdown">
+                            <li>
+                                <span class="user-details" id="user-details">Guest</span>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/history.html">History</a>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
         </div>
-        <div class="slide">
-            <img src="/frontend/assets/service/img/hero2.jpeg" alt="Jharkhand Temples 2">
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="/frontend/home.html" class="mobile-nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/about.html" class="mobile-nav-link">About</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/Service.html" class="mobile-nav-link">Service</a>
+                </li>
+
+                <!-- Mobile Places Dropdown -->
+                <li class="mobile-dropdown">
+                    <button class="mobile-dropdown-trigger" id="places-dropdown-trigger">
+                        Places
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-dropdown-content" id="places-dropdown-content">
+                        <li><a href="/frontend/com/places/ranchi.html" class="mobile-nav-link">Ranchi</a></li>
+                        <li><a href="/frontend/com/places/bokaro.html" class="mobile-nav-link">Bokaro</a></li>
+                        <li><a href="/frontend/com/places/deoghar.html" class="mobile-nav-link">Deoghar</a></li>
+                        <li><a href="/frontend/com/places/jamshedpur.html" class="mobile-nav-link">Jamshedpur</a></li>
+                        <li><a href="/frontend/com/places/dhanbad.html" class="mobile-nav-link">Dhanbad</a></li>
+                        <li><a href="/frontend/com/places/naterhart.html" class="mobile-nav-link">Neterhat</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/frontend/com/contact.html" class="mobile-nav-link">Contact</a>
+                </li>
+
+                <!-- Mobile User Section -->
+                <li class="mobile-user-section">
+                    <button class="mobile-user-trigger" id="user-dropdown-trigger">
+                        <svg class="user-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span id="mobile-user-name">Guest</span>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-user-dropdown" id="user-dropdown-content">
+                        <li>
+                            <a href="/frontend/com/history.html" class="mobile-nav-link">History</a>
+                        </li>
+                        <li>
+                            <a href="/frontend/com/cart.html" class="mobile-nav-link">Cart</a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="mobile-nav-link">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Image Slider -->
+    <section class="hero">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="/frontend/assets/service/img/hero1.jpeg" alt="Jharkhand Landscape 1">
+            </div>
+            <div class="slide">
+                <img src="/frontend/assets/service/img/hero2.jpeg" alt="Jharkhand Temples 2">
+            </div>
+            <div class="slide">
+                <img src="/frontend/assets/service/img/hero3.jpg" alt="Jharkhand Culture 3">
+            </div>
+            <div class="slide">
+                <img src="/frontend/assets/service/img/hero4.jpeg" alt="Jharkhand Nature 4">
+            </div>
+            <div class="slide">
+                <img src="/frontend/assets/service/img/hero5.jpeg" alt="Jharkhand Adventure 5">
+            </div>
+            <div class="slider-navigation">
+                <button class="nav-btn" data-slide="0"></button>
+                <button class="nav-btn" data-slide="1"></button>
+                <button class="nav-btn" data-slide="2"></button>
+                <button class="nav-btn" data-slide="3"></button>
+                <button class="nav-btn" data-slide="4"></button>
+            </div>
         </div>
-        <div class="slide">
-            <img src="/frontend/assets/service/img/hero3.jpg" alt="Jharkhand Culture 3">
-        </div>
-        <div class="slide">
-            <img src="/frontend/assets/service/img/hero4.jpeg" alt="Jharkhand Nature 4">
-        </div>
-        <div class="slide">
-            <img src="/frontend/assets/service/img/hero5.jpeg" alt="Jharkhand Adventure 5">
-        </div>
-        <div class="slider-navigation">
-            <button class="nav-btn" data-slide="0"></button>
-            <button class="nav-btn" data-slide="1"></button>
-            <button class="nav-btn" data-slide="2"></button>
-            <button class="nav-btn" data-slide="3"></button>
-            <button class="nav-btn" data-slide="4"></button>
-        </div>
-    </div>
-    <!-- <div class="hero-content">
+        <!-- <div class="hero-content">
         <h1>Welcome to Jharkhand</h1>
         <p>Discover the Beauty of Eastern India</p>
     </div> -->
-</section>
+    </section>
 
-<!-- Premium Services Section -->
-<section class="services">
-    <div class="container">
-        <h2>Our Premium Services</h2>
-        <div class="services-grid">
-            <!-- Service Card 1 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="material-symbols-outlined">
-                        crown
+    <!-- Premium Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Our Premium Services</h2>
+            <div class="services-grid">
+                <!-- Service Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span class="material-symbols-outlined">
+                            crown
                         </span>
+                    </div>
+                    <h3>Luxury Tours</h3>
+                    <p>Experience Jharkhand in ultimate comfort with 5-star accommodations and private guides.</p>
+                    <div class="service-features">
+                        <span><span class="material-icons">hotel</span> Premium Hotels</span>
+                        <span><span class="material-icons">person</span> Private Guide</span>
+                    </div>
                 </div>
-                <h3>Luxury Tours</h3>
-                <p>Experience Jharkhand in ultimate comfort with 5-star accommodations and private guides.</p>
-                <div class="service-features">
-                    <span><span class="material-icons">hotel</span> Premium Hotels</span>
-                    <span><span class="material-icons">person</span> Private Guide</span>
-                </div>
-            </div>
 
-            <!-- Service Card 2 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="material-icons">photo_camera</span>
+                <!-- Service Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span class="material-icons">photo_camera</span>
+                    </div>
+                    <h3>Photography Tours</h3>
+                    <p>Capture stunning moments with expert photographers at scenic locations.</p>
+                    <div class="service-features">
+                        <span><span class="material-icons">landscape</span> Scenic Spots</span>
+                        <span><span class="material-icons">camera_alt</span> Pro Equipment</span>
+                    </div>
                 </div>
-                <h3>Photography Tours</h3>
-                <p>Capture stunning moments with expert photographers at scenic locations.</p>
-                <div class="service-features">
-                    <span><span class="material-icons">landscape</span> Scenic Spots</span>
-                    <span><span class="material-icons">camera_alt</span> Pro Equipment</span>
-                </div>
-            </div>
 
-            <!-- Service Card 3 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="material-icons">restaurant</span>
+                <!-- Service Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span class="material-icons">restaurant</span>
+                    </div>
+                    <h3>Culinary Experience</h3>
+                    <p>Taste authentic Jharkhand cuisine and learn traditional cooking methods.</p>
+                    <div class="service-features">
+                        <span><span class="material-icons">kitchen</span> Cooking Class</span>
+                        <span><span class="material-icons">local_dining</span> Food Tours</span>
+                    </div>
                 </div>
-                <h3>Culinary Experience</h3>
-                <p>Taste authentic Jharkhand cuisine and learn traditional cooking methods.</p>
-                <div class="service-features">
-                    <span><span class="material-icons">kitchen</span> Cooking Class</span>
-                    <span><span class="material-icons">local_dining</span> Food Tours</span>
-                </div>
-            </div>
 
-            <!-- Service Card 4 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="material-icons">hiking</span>
+                <!-- Service Card 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span class="material-icons">hiking</span>
+                    </div>
+                    <h3>Adventure Package</h3>
+                    <p>Thrilling experiences including trekking, camping, and rock climbing.</p>
+                    <div class="service-features">
+                        <span><span class="material-symbols-outlined">camping</span> Camping</span>
+                        <span><span class="material-icons">terrain</span> Trekking</span>
+                    </div>
                 </div>
-                <h3>Adventure Package</h3>
-                <p>Thrilling experiences including trekking, camping, and rock climbing.</p>
-                <div class="service-features">
-                    <span><span class="material-symbols-outlined">camping</span> Camping</span>
-                    <span><span class="material-icons">terrain</span> Trekking</span>
-                </div>
-            </div>
 
-            <!-- Service Card 5 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="material-icons">self_improvement</span>
+                <!-- Service Card 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span class="material-icons">self_improvement</span>
+                    </div>
+                    <h3>Spiritual Journey</h3>
+                    <p>Visit sacred temples and experience spiritual enlightenment.</p>
+                    <div class="service-features">
+                        <span><span class="material-symbols-outlined">
+                                temple_hindu
+                            </span>Temple Visits</span>
+                        <span><span class="material-icons">psychology</span> Spiritual Guide</span>
+                    </div>
                 </div>
-                <h3>Spiritual Journey</h3>
-                <p>Visit sacred temples and experience spiritual enlightenment.</p>
-                <div class="service-features">
-                    <span><span class="material-symbols-outlined">
-                        temple_hindu
-                        </span>Temple Visits</span>
-                    <span><span class="material-icons">psychology</span> Spiritual Guide</span>
-                </div>
-            </div>
 
-            <!-- Service Card 6 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <span class="material-icons">spa</span>
-                </div>
-                <h3>Wellness Retreat</h3>
-                <p>Rejuvenate with traditional spa treatments and yoga sessions.</p>
-                <div class="service-features">
-                    <span><span class="material-icons">hot_tub</span> Spa Access</span>
-                    <span><span class="material-icons">fitness_center</span> Daily Yoga</span>
+                <!-- Service Card 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span class="material-icons">spa</span>
+                    </div>
+                    <h3>Wellness Retreat</h3>
+                    <p>Rejuvenate with traditional spa treatments and yoga sessions.</p>
+                    <div class="service-features">
+                        <span><span class="material-icons">hot_tub</span> Spa Access</span>
+                        <span><span class="material-icons">fitness_center</span> Daily Yoga</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
-<!-- Featured Destinations -->
-<section class="destinations">
-    <h1>Featured Destinations</h1>
-    <div class="destination-grid">
-        <!-- Main Cities -->
-        <div class="destination-card">
-            <img src="/frontend/assets/service/img/Sun-Temple.jpg" alt="Ranchi">
-            <h3>Ranchi</h3>
-            <p> The capital of the Indian state of Jharkhand and is known as the "City of Waterfalls</p>
-            <div class="destination-highlights">
-                <span>Dassam Falls</span>
-                <span>Tagore Hill</span>
-                <span>Pahari Mandir</span>
-                <span>Jonha Falls</span>
-                <span>Hundru Falls</span>
-            </div>
-            <div class="map-embed">
-                <iframe src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117711.91484915413!2d85.2724755!3d23.3440997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e104aa5db7dd%3A0xdc09d49d6899f43e!2sRanchi%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1637309285227!5m2!1sen!2sin" width="100%" height="200" style="border: 2px;;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+    <!-- Featured Destinations -->
+    <section class="destinations">
+        <h1>Featured Destinations</h1>
+        <div class="destination-grid">
+            <!-- Main Cities -->
+            <div class="destination-card">
+                <img src="/frontend/assets/service/img/Sun-Temple.jpg" alt="Ranchi">
+                <h3>Ranchi</h3>
+                <p> The capital of the Indian state of Jharkhand and is known as the "City of Waterfalls</p>
+                <div class="destination-highlights">
+                    <span>Dassam Falls</span>
+                    <span>Tagore Hill</span>
+                    <span>Pahari Mandir</span>
+                    <span>Jonha Falls</span>
+                    <span>Hundru Falls</span>
+                </div>
+                <div class="map-embed">
+                    <iframe
+                        src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117711.91484915413!2d85.2724755!3d23.3440997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e104aa5db7dd%3A0xdc09d49d6899f43e!2sRanchi%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1637309285227!5m2!1sen!2sin"
+                        width="100%" height="200" style="border: 2px;;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
             <div class="destination-card">
                 <img src="/frontend/assets/service/img/Netarhat1.jpg" alt="Netarhat">
@@ -167,154 +316,120 @@
                     <span>Lodh Waterfall</span>
                     <span>Koel View Point</span>
                     <span>Upper Ghaghri</span>
-                    
+
                 </div>
                 <div class="map-embed">
-                    <iframe src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29274.56189257724!2d84.2424342026276!3d23.484972246519888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398b08073b9e73e9%3A0x27447d0d1c7e558f!2sNetarhat%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1735311633382!5m2!1sen!2sin" width="100%" height="200" style="border: 2px;;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29274.56189257724!2d84.2424342026276!3d23.484972246519888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398b08073b9e73e9%3A0x27447d0d1c7e558f!2sNetarhat%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1735311633382!5m2!1sen!2sin"
+                        width="100%" height="200" style="border: 2px;;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            
-        <!-- Add similar cards for other districts -->
-    </div>
 
-
-
-
-<!-- Trip Planner with Side-by-Side Plans -->
-<section class="trip-planner">
-    <h2>Plan Your Journey</h2>
-    <div class="planner-form">
-        <select id="destination">
-            <option value="">Select Destination</option>
-            <option value="ranchi">Ranchi</option>
-            <option value="bokaro">Bokaro</option>
-            <option value="deoghar">Deoghar</option>
-            <option value="dhanbad">Dhanbad</option>
-            <option value="jamshedpur">Jamshedpur</option>
-            <option value="naterhart">Naterhart</option>
-            <!-- Add more options -->
-        </select>
-        <input type="date" id="travel-date">
-        <input type="number" min="1" max="15" placeholder="Duration (days)">
-        <button onclick="planTrip()">Generate Plans</button>
-    </div>
-    <div class="plan-options">
-        <div class="plan-card" id="plan1">
-            <h3>Premium Plan</h3>
-            <div class="plan-content"></div>
-            <div class="map-embed"></div>
+            <!-- Add similar cards for other districts -->
         </div>
-        <div class="plan-card" id="plan2">
-            <h3>Standard Plan</h3>
-            <div class="plan-content"></div>
-            <div class="map-embed"></div>
-        </div>
-    </div>
-</section>
 
-<!-- Live Chat Button -->
-<div class="chat-widget" id="chatWidget">
-    <div class="chat-toggle" onclick="toggleChat()">
-        <span class="material-symbols-outlined" style="color: white;">headset_mic</span>
 
-    </div>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h4>Live Support</h4>
-            <button class="close-chat" onclick="toggleChat()"style="color: white;"></button>
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <div class="quick-responses">
-                <button onclick="selectQuickResponse('tours')">Tour Packages</button>
-                <button onclick="selectQuickResponse('transport')">Transportation</button>
-                <button onclick="selectQuickResponse('stays')">Accommodations</button>
-                <button onclick="selectQuickResponse('activities')">Activities</button>
+
+
+        <!-- Trip Planner with Side-by-Side Plans -->
+        <section class="trip-planner">
+            <h2>Plan Your Journey</h2>
+            <div class="planner-form">
+                <select id="destination">
+                    <option value="">Select Destination</option>
+                    <option value="ranchi">Ranchi</option>
+                    <option value="bokaro">Bokaro</option>
+                    <option value="deoghar">Deoghar</option>
+                    <option value="dhanbad">Dhanbad</option>
+                    <option value="jamshedpur">Jamshedpur</option>
+                    <option value="naterhart">Naterhart</option>
+                    <!-- Add more options -->
+                </select>
+                <input type="date" id="travel-date">
+                <input type="number" min="1" max="15" placeholder="Duration (days)">
+                <button onclick="planTrip()">Generate Plans</button>
             </div>
-            <div class="chat-messages" id="chatMessages"></div>
-        </div>
-        <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Type your message...">
-            <button onclick="sendMessage()">
-                <span class="material-symbols-outlined">send</span>
-            </button>
-        </div>
-    </div>
-</div>
+            <div class="plan-options">
+                <div class="plan-card" id="plan1">
+                    <h3>Premium Plan</h3>
+                    <div class="plan-content"></div>
+                    <div class="map-embed"></div>
+                </div>
+                <div class="plan-card" id="plan2">
+                    <h3>Standard Plan</h3>
+                    <div class="plan-content"></div>
+                    <div class="map-embed"></div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Live Chat Button -->
+        <div class="chat-widget" id="chatWidget">
+            <div class="chat-toggle" onclick="toggleChat()">
+                <span class="material-symbols-outlined" style="color: white;">headset_mic</span>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Footer -->
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Footer Logo and Description -->
-        <div class="footer-about">
-            <h2>Explore Jharkhand</h2>
-            <p>Discover the beauty and heritage of Jharkhand, one district at a time. Let's explore the wonders of nature, culture, and history together.</p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/frontend/home.html">Home</a></li>
-                <li><a href="/frontend/home.html">Places</a></li>
-                <li><a href="/frontend/com/about.html">About</a></li>
-                <li><a href="/frontend/com/Service.html">Service</a></li>
-                <li><a href="/frontend/com/contact.html">Contact</a></li>
-            </ul>
+            </div>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h4>Live Support</h4>
+                    <button class="close-chat" onclick="toggleChat()" style="color: white;"></button>
+                    <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="chat-body" id="chatBody">
+                    <div class="quick-responses">
+                        <button onclick="selectQuickResponse('tours')">Tour Packages</button>
+                        <button onclick="selectQuickResponse('transport')">Transportation</button>
+                        <button onclick="selectQuickResponse('stays')">Accommodations</button>
+                        <button onclick="selectQuickResponse('activities')">Activities</button>
+                    </div>
+                    <div class="chat-messages" id="chatMessages"></div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Type your message...">
+                    <button onclick="sendMessage()">
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- Contact Information -->
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>Email : <a href="mailto:info@explorejharkhand.com">explorejharkhand@gmail.com</a></p>
-            <p>Phone : +91 7667985687</p>
-            <p>Location : Dhanbad, Jharkhand, India</p>
-        </div>
 
-        <!-- Social Media Icons -->
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <a href="https://www.facebook.com/explorejharkhand/" target="_blank"><img src="/frontend/assets/icon/facebook.png" alt="Facebook"></a>
-            <a href="https://twitter.com/visitjharkhand?lang=en" target="_blank"><img src="/frontend/assets/icon/twitter.png" alt="Twitter"></a>
-            <a href="https://www.instagram.com/jharkhandtourism/?hl=en"  target="_blank"><img src="/frontend/assets/icon/instagram.png" alt="Instagram"></a>
-            <a href="https://in.linkedin.com/company/government-of-jharkhand" target="_blank"><img src="/frontend/assets/icon/linkedin.png" alt="LinkedIn"></a>
-        </div>
-    </div>
 
-    <!-- Copyright -->
-    <div class="footer-bottom">
-        <p>&copy; 2024 Explore Jharkhand. All rights reserved.</p>
-    </div>
-</footer>
 
-    <script src="/frontend/cover/js/service.js"></script>
-    <script src="/frontendhttps://kit.fontawesome.com/6cc23f3c32.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- footer -->
+        <footer>
+            <div id="footer"></div>
+        </footer>
+        
+        <script src="/frontend/component/navbar/navbar.js"></script>
+        <script src="/frontend/cover/js/service.js"></script>
+        <script src="/frontendhttps://kit.fontawesome.com/6cc23f3c32.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

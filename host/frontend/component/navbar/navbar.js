@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
             '/frontend/com/places/jamshedpur.html': 'places',
             '/frontend/com/places/dhanbad.html': 'places',
             '/frontend/com/places/naterhart.html': 'places'
+            
         };
 
         // Remove all existing active classes
@@ -253,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.body.removeChild(notification);
                     }
                 }, 300);
-            }, 3000);
+            }, 5000);
         }
     };
 });

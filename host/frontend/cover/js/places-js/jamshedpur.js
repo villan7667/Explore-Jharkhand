@@ -1,14 +1,10 @@
 
 // Fetch Navbar and Footer HTML and insert into the document
-fetch('/frontend/component/navbar/navbar.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('navbar').innerHTML = data;
-});
+
 fetch('/frontend/component/footer/footer.html')
 .then(res => res.text())
 .then(data => {
-  document.getElementById('').innerHTML = data;
+  document.getElementById('footer').innerHTML = data;
 });
 
 // JavaScript for Navbar and Footer HSGF@7667

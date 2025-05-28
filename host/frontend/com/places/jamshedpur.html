@@ -1,15 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jamshedpur - Explore Jharkhand</title>
     <link rel="icon" href="/frontend/assets/pic.png" type="image/png">
     <link rel="stylesheet" href="/frontend/cover/css/places-css/jamshedpur.css">
+    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">
 </head>
+
 <body>
     <!-- Navbar -->
-    <div id="navbar"></div>
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">Explore <span>Jharkhand</span></a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/frontend/home.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/Service.html">Service</a>
+                    </li>
+
+                    <!-- Places Dropdown -->
+                    <li class="nav-links dropdown-parent">
+                        <a href="#" class="dropdown-trigger">
+                            Places
+                            <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="/frontend/com/places/ranchi.html">Ranchi</a></li>
+                            <li><a href="/frontend/com/places/bokaro.html">Bokaro</a></li>
+                            <li><a href="/frontend/com/places/deoghar.html">Deoghar</a></li>
+                            <li><a href="/frontend/com/places/jamshedpur.html">Jamshedpur</a></li>
+                            <li><a href="/frontend/com/places/dhanbad.html">Dhanbad</a></li>
+                            <li><a href="/frontend/com/places/naterhart.html">Neterhat</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/frontend/com/contact.html">Contact</a>
+                    </li>
+
+                    <!-- User Dropdown -->
+                    <li class="user-logo dropdown-parent">
+                        <a href="#" class="user-trigger">
+                            <img src="/frontend/assets/icon/user.png" alt="User Icon" />
+                        </a>
+                        <ul class="user-dropdown">
+                            <li>
+                                <span class="user-details" id="user-details">Guest</span>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/history.html">History</a>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="/frontend/home.html" class="mobile-nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/about.html" class="mobile-nav-link">About</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/Service.html" class="mobile-nav-link">Service</a>
+                </li>
+
+                <!-- Mobile Places Dropdown -->
+                <li class="mobile-dropdown">
+                    <button class="mobile-dropdown-trigger" id="places-dropdown-trigger">
+                        Places
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-dropdown-content" id="places-dropdown-content">
+                        <li><a href="/frontend/com/places/ranchi.html" class="mobile-nav-link">Ranchi</a></li>
+                        <li><a href="/frontend/com/places/bokaro.html" class="mobile-nav-link">Bokaro</a></li>
+                        <li><a href="/frontend/com/places/deoghar.html" class="mobile-nav-link">Deoghar</a></li>
+                        <li><a href="/frontend/com/places/jamshedpur.html" class="mobile-nav-link">Jamshedpur</a></li>
+                        <li><a href="/frontend/com/places/dhanbad.html" class="mobile-nav-link">Dhanbad</a></li>
+                        <li><a href="/frontend/com/places/naterhart.html" class="mobile-nav-link">Neterhat</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/frontend/com/contact.html" class="mobile-nav-link">Contact</a>
+                </li>
+
+                <!-- Mobile User Section -->
+                <li class="mobile-user-section">
+                    <button class="mobile-user-trigger" id="user-dropdown-trigger">
+                        <svg class="user-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span id="mobile-user-name">Guest</span>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-user-dropdown" id="user-dropdown-content">
+                        <li>
+                            <a href="/frontend/com/history.html" class="mobile-nav-link">History</a>
+                        </li>
+                        <li>
+                            <a href="/frontend/com/cart.html" class="mobile-nav-link">Cart</a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="mobile-nav-link">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <section class="hero-section">
         <div class="slider">
@@ -24,7 +173,8 @@
             </div>
             <div class="slide">
                 <img src="\frontend\assets\places\jamshedpur\hero\hero4.jpg" alt="hsgf">
-            </div><div class="slide">
+            </div>
+            <div class="slide">
                 <img src="\frontend\assets\places\jamshedpur\hero\hero5.jpg" alt="hsgf">
             </div>
         </div>
@@ -34,69 +184,31 @@
             <h1><span>Explore</span> Jamshedpur</h1>
             <h4> Jamshedpur is known for its industrial heritage, especially the Tata Steel plant. </h4>
         </div>
-       </section>
-         <!-- Top Attractions Section -->
-         <div class="container">
-            <section class="top-attractions">
-                <div class="header">
-                    <h1>Top Attractions in Bokaro</h1>
-                    <div class="header-buttons"> 
-                    </div>
+    </section>
+    <!-- Top Attractions Section -->
+    <div class="container">
+        <section class="top-attractions">
+            <div class="header">
+                <h1>Top Attractions in Bokaro</h1>
+                <div class="header-buttons">
                 </div>
-                <p class="subheader">These rankings are informed by Jharkhand Tourism data—we consider traveller reviews, ratings, number of page views, and location.</p>
-                <div class="attractions-grid" id="topAttractions">
-                    <!-- Top attractions will be dynamically added here -->
-                </div>
-            </section>
-        </div>
-      
-
-
-       <!-- Footer -->
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Footer Logo and Description -->
-        <div class="footer-about">
-            <h2>Explore Jharkhand</h2>
-            <p>Discover the beauty and heritage of Jharkhand, one district at a time. Let's explore the wonders of nature, culture, and history together.</p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/frontend/home.html">Home</a></li>
-                <li><a href="/frontend/home.html">Places</a></li>
-                <li><a href="/frontend/com/about.html">About</a></li>
-                <li><a href="/frontend/com/Service.html">Service</a></li>
-                <li><a href="/frontend/com/contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>Email : <a href="mailto:info@explorejharkhand.com">explorejharkhand@gmail.com</a></p>
-            <p>Phone : +91 7667985687</p>
-            <p>Location : Dhanbad, Jharkhand, India</p>
-        </div>
-
-        <!-- Social Media Icons -->
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <a href="https://www.facebook.com/explorejharkhand/" target="_blank"><img src="/frontend/assets/icon/facebook.png" alt="Facebook"></a>
-            <a href="https://twitter.com/visitjharkhand?lang=en" target="_blank"><img src="/frontend/assets/icon/twitter.png" alt="Twitter"></a>
-            <a href="https://www.instagram.com/jharkhandtourism/?hl=en"  target="_blank"><img src="/frontend/assets/icon/instagram.png" alt="Instagram"></a>
-            <a href="https://in.linkedin.com/company/government-of-jharkhand" target="_blank"><img src="/frontend/assets/icon/linkedin.png" alt="LinkedIn"></a>
-        </div>
+            </div>
+            <p class="subheader">These rankings are informed by Jharkhand Tourism data—we consider traveller reviews,
+                ratings, number of page views, and location.</p>
+            <div class="attractions-grid" id="topAttractions">
+                <!-- Top attractions will be dynamically added here -->
+            </div>
+        </section>
     </div>
 
-    <!-- Copyright -->
-    <div class="footer-bottom">
-        <p>&copy; 2024 Explore Jharkhand. All rights reserved.</p>
-    </div>
-</footer>
 
+
+
+    <footer>
+        <div id="footer"></div>
+    </footer>
+    <script src="/frontend/component/navbar/navbar.js"></script>
     <script src="\frontend\cover\js\places-js\jamshedpur.js"></script>
 </body>
+
 </html>

@@ -1,15 +1,10 @@
 // cart.js
 
 // Load the navbar and footer HTML into the page
-fetch('/frontend/component/navbar/navbar.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('navbar').innerHTML = data;
-});
 fetch('/frontend/component/footer/footer.html')
 .then(res => res.text())
 .then(data => {
-  document.getElementById('').innerHTML = data;
+  document.getElementById('footer').innerHTML = data;
 });
 
 

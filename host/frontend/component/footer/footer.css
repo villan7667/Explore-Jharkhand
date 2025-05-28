@@ -1,7 +1,7 @@
 /* Universal Footer Styling */
 .footer {
     width: 100%;
-    background: linear-gradient(45deg, #7840fc, #8a58f5, #6b35ea, #c086ff);
+    background: linear-gradient(45deg, #7840fcc0, #8a58f5e1, #6b35ea96, #c086fffa);
     color: #ffffff;
     padding: 3rem 1.5rem 2rem;
     font-family: 'Poppins', sans-serif;
@@ -30,7 +30,7 @@
 
 /* Section Headings */
 .footer h2, .footer h3 {
-    color: #000000;
+    color: #373737;
     margin-bottom: 1rem;
 }
 
