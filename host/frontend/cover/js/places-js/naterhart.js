@@ -289,12 +289,64 @@ function createAttractionCard(attraction, isNearby = false) {
                         <span class="author-name">By ${attraction.author.name}</span>
                     </div>
                 `}
-                <a href="/frontend/com/places/ranchi/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
+                <a href="/frontend/com/places/naterhart/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
             </div>
         </div>
     `;
 }
 
+
+function createRatingCircles(rating) {
+    let html = '<div class="rating-circles">';
+    for (let i = 0; i < 5; i++) {
+        html += `<div class="rating-circle ${i < Math.floor(rating) ? 'filled' : ''}"></div>`;
+    }
+    html += '</div>';
+    return html;
+}
+
+function createAttractionCard(attraction, isNearby = false) {
+    return `
+        <div class="attraction-card" data-id="${attraction.id}">
+            <div class="attraction-image">
+                ${attraction.images.map((img, index) => `<img src="/frontend${img}" alt="${attraction.name}" class="${index === 0 ? 'active' : ''}">`).join('')}
+                <button class="favorite-btn" onclick="toggleFavorite(this)" aria-label="Add to favorites">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <div class="image-controls">
+                    <button class="prev-btn" onclick="changeSlide(${attraction.id}, -1)" aria-label="Previous image">❮</button>
+                    <div class="image-indicators">
+                        ${attraction.images.map((_, index) => `<div class="image-indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${attraction.id}, ${index})"></div>`).join('')}
+                    </div>
+                    <button class="next-btn" onclick="changeSlide(${attraction.id}, 1)" aria-label="Next image">❯</button>
+                </div>
+            </div>
+            <div class="attraction-details">
+                <h3 class="attraction-name">${attraction.name}</h3>
+                <div class="attraction-rating">
+                    ${createRatingCircles(attraction.rating)}
+                    <span class="review-count">${attraction.reviews} reviews</span>
+                </div>
+                <p class="attraction-category">${attraction.category}</p>
+                ${isNearby ? `
+                    <div class="nearby-info">
+                        <span>${attraction.location}</span>
+                        <span>${attraction.distance}</span>
+                    </div>
+                ` : `
+                    <p class="attraction-description">${attraction.description}</p>
+                    <div class="attraction-author">
+                        <img src="/frontend${attraction.author.avatar}" alt="${attraction.author.name}" class="author-avatar">
+                        <span class="author-name">By ${attraction.author.name}</span>
+                    </div>
+                    <a href="/frontend/com/places/ranchi/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
+                `}
+            </div>
+        </div>
+    `;
+}
 
 function toggleFavorite(button) {
     button.classList.toggle('active');
@@ -356,7 +408,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startAutoSlide();
 });
-
 
 
 

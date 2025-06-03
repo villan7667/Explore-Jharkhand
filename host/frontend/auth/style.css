@@ -412,7 +412,7 @@ body {
 
 /* Optional celebratory confetti for success */
 .custom-alert.success::after {
-  content: "🎉 Welcome aboard! Your action was successful!";
+  content: "Welcome aboard! Your action was successful!";
   display: block;
   font-size: 0.9rem;
   margin-top: 0.5rem;

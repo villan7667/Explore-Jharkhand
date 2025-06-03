@@ -248,6 +248,9 @@ html,body {
 h1{
    text-transform: uppercase; 
     text-align: center;
+    font-weight: 600;
+    font-size: 2.5rem;
+    font-family: poppins, sans-serif;
 }
 
 .destination-grid {
@@ -452,30 +455,3 @@ h1{
         height: 50px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

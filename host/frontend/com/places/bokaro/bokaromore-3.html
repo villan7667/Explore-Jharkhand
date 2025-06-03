@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <!-- External CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/frontend\cover\css\home.css">
+    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">
     <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
@@ -16,382 +18,458 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
+
 <body>
-           <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo"><a href="#">Explore <span>Jharkhand</span> </a></div>
-        <div class="menu-button" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">Explore <span>Jharkhand</span></a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/frontend/home.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/Service.html">Service</a>
+                    </li>
+
+                    <!-- Places Dropdown -->
+                    <li class="nav-links dropdown-parent">
+                        <a href="#" class="dropdown-trigger">
+                            Places
+                            <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="/frontend/com/places/ranchi.html">Ranchi</a></li>
+                            <li><a href="/frontend/com/places/bokaro.html">Bokaro</a></li>
+                            <li><a href="/frontend/com/places/deoghar.html">Deoghar</a></li>
+                            <li><a href="/frontend/com/places/jamshedpur.html">Jamshedpur</a></li>
+                            <li><a href="/frontend/com/places/dhanbad.html">Dhanbad</a></li>
+                            <li><a href="/frontend/com/places/naterhart.html">Neterhat</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/frontend/com/contact.html">Contact</a>
+                    </li>
+
+                    <!-- User Dropdown -->
+                    <li class="user-logo dropdown-parent">
+                        <a href="#" class="user-trigger">
+                            <img src="/frontend/assets/icon/user.png" alt="User Icon" />
+                        </a>
+                        <ul class="user-dropdown">
+                            <li>
+                                <span class="user-details" id="user-details">Guest</span>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/history.html">History</a>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
         </div>
-        <nav>
-            <ul id="nav-list">
-                <li><a href="/frontend/home.html">Home</a></li>
-                <li><a href="/frontend/com/about.html">About</a></li>
-                <li><a href="/frontend/com/Service.html">Service</a></li>
-                <li class="nav-links"><a href="/frontend/home.html">Places</a>
-                    <ul class="dropdown">
-                        <li><a href="/frontend/com/places/ranchi.html">Ranchi</a></li>
-                        <li><a href="/frontend/com/places/bokaro.html">Bokaro</a></li>
-                        <li><a href="/frontend/com/places/deoghar.html">Deoghar</a></li>
-                        <li><a href="/frontend/com/places/jamshedpur.html">Jamshedpur</a></li>
-                        <li><a href="/frontend/com/places/dhanbad.html">Dhanbad</a></li>
-                        <li><a href="/frontend/com/places/naterhart.html">Naterhart</a></li>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="/frontend/home.html" class="mobile-nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/about.html" class="mobile-nav-link">About</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/Service.html" class="mobile-nav-link">Service</a>
+                </li>
+
+                <!-- Mobile Places Dropdown -->
+                <li class="mobile-dropdown">
+                    <button class="mobile-dropdown-trigger" id="places-dropdown-trigger">
+                        Places
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-dropdown-content" id="places-dropdown-content">
+                        <li><a href="/frontend/com/places/ranchi.html" class="mobile-nav-link">Ranchi</a></li>
+                        <li><a href="/frontend/com/places/bokaro.html" class="mobile-nav-link">Bokaro</a></li>
+                        <li><a href="/frontend/com/places/deoghar.html" class="mobile-nav-link">Deoghar</a></li>
+                        <li><a href="/frontend/com/places/jamshedpur.html" class="mobile-nav-link">Jamshedpur</a></li>
+                        <li><a href="/frontend/com/places/dhanbad.html" class="mobile-nav-link">Dhanbad</a></li>
+                        <li><a href="/frontend/com/places/naterhart.html" class="mobile-nav-link">Neterhat</a></li>
                     </ul>
                 </li>
-                <li><a href="/frontend/com/contact.html">Contact</a></li>
-                <li class="user-logo">
-                    <a href="#">
-                        <img src="/frontend/assets/icon/user.png" alt="User Icon" />
-                    </a>
-                    <ul class="user-dropdown">
-                        <li><span class="user-details">John Doe<br>johndoe@gmail.com</span></li>
-                        <li><a href="/frontend/com/history.html">History</a></li>
-                        <li><a href="/frontend/com/cart.html">Add to Cart</a></li>
+
+                <li>
+                    <a href="/frontend/com/contact.html" class="mobile-nav-link">Contact</a>
+                </li>
+
+                <!-- Mobile User Section -->
+                <li class="mobile-user-section">
+                    <button class="mobile-user-trigger" id="user-dropdown-trigger">
+                        <svg class="user-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span id="mobile-user-name">Guest</span>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-user-dropdown" id="user-dropdown-content">
+                        <li>
+                            <a href="/frontend/com/history.html" class="mobile-nav-link">History</a>
+                        </li>
+                        <li>
+                            <a href="/frontend/com/cart.html" class="mobile-nav-link">Cart</a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="mobile-nav-link">Logout</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </nav>
-    </nav>
+    </header>
 
-<!-- start hero  -->
-<section class="hero">
+
+    <!-- start hero  -->
+    <section class="hero">
         <div class="slider">
             <div class="slide">
-                <img src="/frontend/assets/places/ranchi/showmore/dassam fall/hero1.jpeg" alt="hero 1">
+                <img src="/frontend/assets/places/bokaro/show/temple/hero1.jpg" alt="Jagannath Temple hero 1">
             </div>
             <div class="slide">
-                <img src="/frontend/assets/places/ranchi/showmore/dassam fall/hero2.jpeg " alt="hero 2">
+                <img src="/frontend/assets/places/bokaro/show/temple/hero2.jpg" alt="Jagannath Temple hero 2">
             </div>
             <div class="slide">
-                <img src="/frontend/assets/places/ranchi/showmore/dassam fall/hero3.jpeg" alt="hero 3">
+                <img src="/frontend/assets/places/bokaro/show/temple/hero3.jpeg" alt="Jagannath Temple hero 3">
             </div>
+            <div class="overlay"></div>
             <div class="hero-content">
-                <h1> Jagannath temple</h1>
-                <p>Experience the natural beauty of Jharkhand's most stunning temple</p>
+                <h1>Jagannath Temple </h1>
+                <p>Discover the spiritual and scenic beauty of Bokaro's iconic Jagannath Temple Park</p>
             </div>
         </div>
     </section>
-<!-- end hero -->
+    <!-- end hero -->
 
-<!-- History Section -->
-<section id="history" class="history">
-                <div class="content">
-                    <h2>History of Dassam Falls</h2>
-                    <p cdalign="justify">Dassam Falls, located in Jharkhand, India, is a natural wonder with a rich history. The falls, formed by the Kanchi River, cascade down from a height of 144 feet, creating a spectacular view that has attracted visitors for centuries.Dasham Falls is not just a natural wonder, but also a cultural treasure. The name Dasham or Dassam means “ten” in the local Mundari language, and it refers to the legend that the waterfall was created by ten brothers who were cursed by a goddess for their sins.
-                    </p>
-                </div>
-                <div class="scattered-images">
-                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/dassam 1.jpg" alt="Dassam Falls History 1">
-                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/dassam 2.jpg" alt="Dassam Falls History 2">
-                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/dassam 3.jpg" alt="Dassam Falls History 3">
-                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/dassam 4.jpg" alt="Dassam Falls History 4">
-                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/dassam 5.jpg" alt="Dassam Falls History 5">
-                </div>
+    <!-- History Section -->
+    <section id="history" class="history">
+        <div class="content">
+            <h2>History of Jagannath Temple </h2>
+            <p align="justify">Jagannath Temple Park in Bokaro, Jharkhand, is a renowned spiritual and recreational destination. The temple, inspired by the famous Jagannath Temple of Puri, was constructed in the early 2000s and has since become a center for religious festivities and community gatherings. Surrounded by lush gardens and serene landscapes, the park offers a peaceful retreat for visitors and devotees alike, blending cultural heritage with natural beauty.</p>
+        </div>
+        <div class="scattered-images">
+            <img src="/frontend/assets/places/bokaro/show/temple/img1.jpeg" alt="Jagannath Temple Park History 1">
+            <img src="/frontend/assets/places/bokaro/show/temple/img2.jpeg" alt="Jagannath Temple Park History 2">
+            <img src="/frontend/assets/places/bokaro/show/temple/img3.jpeg" alt="Jagannath Temple Park History 3">
+            <img src="/frontend/assets/places/bokaro/show/temple/img4.jpeg" alt="Jagannath Temple Park History 4">
+            <img src="/frontend/assets/places/bokaro/show/temple/hero3.jpeg" alt="Jagannath Temple Park History 5">
+        </div>
     </section>
-<!-- end history  -->
-   
+    <!-- end history  -->
 
-<!-- Stats Section -->
-<section class="stats">
-    <div class="container">
-        <h2>Our Impact</h2>
-        <div class="stats-grid">
-            <!-- Visitors -->
-            <div class="stat-card">
-                <span class="material-icons">groups</span>
-                <div class="number" data-value="500000">0</div>
-                <div class="label">Annual Visitors</div>
-            </div>
-            
-            <!-- Rating -->
-            <div class="stat-card">
-                <span class="material-icons">star</span>
-                <div class="number" data-value="95">0</div>
-                <div class="label">Satisfaction %</div>
-            </div>
-            
-            <!-- Photos -->
-            <div class="stat-card">
-                <span class="material-icons">photo_camera</span>
-                <div class="number" data-value="250000">0</div>
-                <div class="label">Photos Shared</div>
-            </div>
-            
-            <!-- Reviews -->
-            <div class="stat-card">
-                <span class="material-icons">favorite</span>
-                <div class="number" data-value="98">0</div>
-                <div class="label">Positive Reviews</div>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <!-- Visitors -->
+                <div class="stat-card">
+                    <span class="material-icons">groups</span>
+                    <div class="number" data-value="328030">0</div>
+                    <div class="label">Annual Visitors</div>
+                </div>
+
+                <!-- Rating -->
+                <div class="stat-card">
+                    <span class="material-icons">star</span>
+                    <div class="number" data-value="97">0</div>
+                    <div class="label">Satisfaction %</div>
+                </div>
+
+                <!-- Photos -->
+                <div class="stat-card">
+                    <span class="material-icons">photo_camera</span>
+                    <div class="number" data-value="120360">0</div>
+                    <div class="label">Photos Shared</div>
+                </div>
+
+                <!-- Reviews -->
+                <div class="stat-card">
+                    <span class="material-icons">favorite</span>
+                    <div class="number" data-value="99">0</div>
+                    <div class="label">Positive Reviews</div>
+                </div>
             </div>
         </div>
-    </div>
     </section>
- <!-- end Section -->
+    <!-- end Section -->
 
-<!-- Booking Section -->
-<section id="booking" class="booking">
-            <div class="hotel-section">
-                <h2>Featured Hotels</h2>
-                <div class="hotel-cards">
-                    <div class="hotel-card">
-                        <div class="hotel-image">
-                            <img src="/frontend/assets/places/ranchi/showmore/dassam fall/hotel 1.jpg" alt="Luxury Hotel">
-                            <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
-                        </div>
-                        <div class="hotel-info">
-                            <h3>Nutan Dassam Dahh</h3>
-                            <div class="rating">
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star_half</span>
-                                <span>(4.5/5)</span>
-                            </div>
-                            <p class="features">Pool • Spa • Restaurant • WiFi</p>
-                            <p class="review">"Exceptional service with stunning views"</p>
-                            <div class="price">Starting from ₹5,999/night</div>
-                            <button class="book-now">Book Now</button>
-                        </div>
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="hotel-section">
+            <h2>Featured Hotels</h2>
+            <div class="hotel-cards">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="\frontend\assets\places\bokaro\show\temple\hotel 1.jpg" alt="Hotel Park View">
+                        <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
                     </div>
-
-                    <div class="hotel-card">
-                        <div class="hotel-image">
-                            <img src="/frontend/assets/places/ranchi/showmore/dassam fall/hotel 2.jpg" alt="Premium Resort">
-                            <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
+                    <div class="hotel-info">
+                        <h3>Hotel  View</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star_half</span>
+                            <span>(4.5/5)</span>
                         </div>
-                        <div class="hotel-info">
-                            <h3>DASSAM FARM & RESTRO</h3>
-                            <div class="rating">
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span>(4.0/5)</span>
-                            </div>
-                            <p class="features">Restaurant • WiFi • Garden • Parking</p>
-                            <p class="review">"Perfect location with great amenities"</p>
-                            <div class="price">Starting from ₹4,499/night</div>
-                            <button class="book-now">Book Now</button>
-                        </div>
+                        <p class="features">Garden • Restaurant • WiFi • Parking</p>
+                        <p class="review">"Peaceful stay near the temple with excellent amenities"</p>
+                        <div class="price">Starting from ₹3,499/night</div>
+                        <button class="book-now">Book Now</button>
                     </div>
+                </div>
 
-                    <div class="hotel-card">
-                        <div class="hotel-image">
-                            <img src="/frontend/assets/places/ranchi/showmore/dassam fall/hotel 3.jpg" alt="Comfort Hotel">
-                            <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="/frontend/assets/places/bokaro/show/temple/hotel2.jpg" alt="Temple Residency">
+                        <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Temple Residency</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(4.3/5)</span>
                         </div>
-                        <div class="hotel-info">
-                            <h3>Dasham Family Dhaba</h3>
-                            <div class="rating">
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span>(4.2/5)</span>
-                            </div>
-                            <p class="features">WiFi • Restaurant • Parking</p>
-                            <p class="review">"Comfortable stay with friendly staff"</p>
-                            <div class="price">Starting from ₹3,999/night</div>
-                            <button class="book-now">Book Now</button>
+                        <p class="features">AC Rooms • WiFi • Breakfast • Parking</p>
+                        <p class="review">"Comfortable and clean, just a walk away from the park"</p>
+                        <div class="price">Starting from ₹2,999/night</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="/frontend/assets/places/bokaro/show/temple/hotel3.jpg" alt="Green Leaf Inn">
+                        <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Green Leaf Inn</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star_half</span>
+                            <span>(4.0/5)</span>
                         </div>
+                        <p class="features">WiFi • Restaurant • Family Rooms</p>
+                        <p class="review">"Friendly staff and great food options"</p>
+                        <div class="price">Starting from ₹2,499/night</div>
+                        <button class="book-now">Book Now</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="cab-section">
-                <h2>Available Cabs</h2>
-                <div class="cab-cards">
-                    <div class="cab-card">
-                        <div class="cab-image">
-                            <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab1.jpg" alt="Premium SUV">
-                        </div>
-                        <div class="cab-info">
-                            <h3>Premium SUV</h3>
-                            <div class="rating">
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span>(4.0/5)</span>
-                            </div>
-                            <p class="features">AC • 6 Seater • GPS • 24/7</p>
-                            <div class="price">₹15/km</div>
-                            <button class="book-now">Book Now</button>
-                        </div>
+        <div class="cab-section">
+            <h2>Available Cabs</h2>
+            <div class="cab-cards">
+                <div class="cab-card">
+                    <div class="cab-image">
+                        <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab1.jpg" alt="Premium SUV">
                     </div>
-
-                    <div class="cab-card">
-                        <div class="cab-image">
-                            <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab2.jpg" alt="Sedan">
+                    <div class="cab-info">
+                        <h3>Premium SUV</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(4.0/5)</span>
                         </div>
-                        <div class="cab-info">
-                            <h3>Comfort Sedan</h3>
-                            <div class="rating">
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span>(4.2/5)</span>
-                            </div>
-                            <p class="features">AC • 4 Seater • GPS • 24/7</p>
-                            <div class="price">₹12/km</div>
-                            <button class="book-now">Book Now</button>
-                        </div>
+                        <p class="features">AC • 6 Seater • GPS • 24/7</p>
+                        <div class="price">₹15/km</div>
+                        <button class="book-now">Book Now</button>
                     </div>
+                </div>
 
-                    <div class="cab-card">
-                        <div class="cab-image">
-                            <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab3.png" alt="Hatchback">
+                <div class="cab-card">
+                    <div class="cab-image">
+                        <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab2.jpg" alt="Sedan">
+                    </div>
+                    <div class="cab-info">
+                        <h3>Comfort Sedan</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(4.2/5)</span>
                         </div>
-                        <div class="cab-info">
-                            <h3>Economy Hatchback</h3>
-                            <div class="rating">
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span class="material-icons">star</span>
-                                <span>(3.8/5)</span>
-                            </div>
-                            <p class="features">AC • 4 Seater • GPS</p>
-                            <div class="price">₹10/km</div>
-                            <button class="book-now">Book Now</button>
+                        <p class="features">AC • 4 Seater • GPS • 24/7</p>
+                        <div class="price">₹12/km</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="cab-card">
+                    <div class="cab-image">
+                        <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab3.png" alt="Hatchback">
+                    </div>
+                    <div class="cab-info">
+                        <h3>Economy Hatchback</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(3.8/5)</span>
                         </div>
+                        <p class="features">AC • 4 Seater • GPS</p>
+                        <div class="price">₹10/km</div>
+                        <button class="book-now">Book Now</button>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
-<!-- end of booking section -->
+    <!-- end of booking section -->
 
-<!-- map start -->
-<section class="map">
-                <h2>Location & Directions</h2>
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.5614284326377!2d85.76299731444787!3d23.366889884786465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e104aa5db7dd%3A0xd19ce3d5d7b4e0d7!2sDassam%20Falls!5e0!3m2!1sen!2sin!4v1641970148744!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
+    <!-- map start -->
+    <section class="map">
+        <h2>Location & Directions</h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.939577990392!2d86.15129227493377!3d23.678118678719777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4223500000001%3A0xf358c61e02b4d56a!2sJagannath%20Mandir%20Bokaro!5e0!3m2!1sen!2sin!4v1748851797941!5m2!1sen!2sin"
+            width="100%" height="200" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy">
+        </iframe>
     </section>
-<!-- end map -->
+    <!-- end map -->
 
-<!-- start testmonials -->
-<section id="testimonials" class="testimonials">
-    <h2>Traveler Says</h2>
-    <div class="testimonial-container">
-        <div class="testimonial-card">
-            <div class="user-info">
-                <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review1.png" alt="User" class="user-avatar">
-                <div class="user-details">
-                    <h4>Riya Sharma</h4>
-                    <span>2 days ago</span>
+    <!-- start testmonials -->
+    <section id="testimonials" class="testimonials">
+        <h2>Traveler Says</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review1.png" alt="User"
+                        class="user-avatar">
+                    <div class="user-details">
+                        <h4>Riya Sharma</h4>
+                        <span>2 days ago</span>
+                    </div>
+                </div>
+                <p class="review-text">"An absolutely breathtaking experience! The falls are a must-visit. The sound of
+                    rushing water and the natural beauty around is simply amazing. #DassamFalls #Nature"</p>
+                <div class="review-images">
+
+                </div>
+                <div class="review-actions">
+                    <button><span class="material-icons">favorite_border</span> 245</button>
+                    <button><span class="material-icons">chat_bubble_outline</span> 18</button>
+                    <button><span class="material-icons">share</span></button>
                 </div>
             </div>
-            <p class="review-text">"An absolutely breathtaking experience! The falls are a must-visit. The sound of rushing water and the natural beauty around is simply amazing. #DassamFalls #Nature"</p>
-            <div class="review-images">
-               
-            </div>
-            <div class="review-actions">
-                <button><span class="material-icons">favorite_border</span> 245</button>
-                <button><span class="material-icons">chat_bubble_outline</span> 18</button>
-                <button><span class="material-icons">share</span></button>
-            </div>
-        </div>
 
-        <div class="testimonial-card">
-            <div class="user-info">
-                <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review2.png" alt="User" class="user-avatar">
-                <div class="user-details">
-                    <h4>Priya Patel</h4>
-                    <span>1 week ago</span>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review2.png" alt="User"
+                        class="user-avatar">
+                    <div class="user-details">
+                        <h4>Priya Patel</h4>
+                        <span>1 week ago</span>
+                    </div>
+                </div>
+                <p class="review-text">"Perfect weekend getaway! The hotels nearby are excellent and the cab service was
+                    very reliable. Will definitely come back! <br>💚 #Weekend #Travel"</p>
+                <div class="review-images">
+
+                </div>
+                <div class="review-actions">
+                    <button><span class="material-icons">favorite_border</span> 189</button>
+                    <button><span class="material-icons">chat_bubble_outline</span> 12</button>
+                    <button><span class="material-icons">share</span></button>
                 </div>
             </div>
-            <p class="review-text">"Perfect weekend getaway! The hotels nearby are excellent and the cab service was very reliable. Will definitely come back! <br>💚 #Weekend #Travel"</p>
-            <div class="review-images">
-               
-            </div>
-            <div class="review-actions">
-                <button><span class="material-icons">favorite_border</span> 189</button>
-                <button><span class="material-icons">chat_bubble_outline</span> 12</button>
-                <button><span class="material-icons">share</span></button>
-            </div>
-        </div>
 
-        <div class="testimonial-card">
-            <div class="user-info">
-                <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review3.png" alt="User" class="user-avatar">
-                <div class="user-details">
-                    <h4>Amit Kumar</h4>
-                    <span>2 weeks ago</span>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review3.png" alt="User"
+                        class="user-avatar">
+                    <div class="user-details">
+                        <h4>Amit Kumar</h4>
+                        <span>2 weeks ago</span>
+                    </div>
+                </div>
+                <p class="review-text">"Great place for photography! The morning light creates magical moments. Don't
+                    forget to book a good hotel in advance during peak season. 📸 #Photography #Travel"</p>
+                <div class="review-images">
+
+                </div>
+                <div class="review-actions">
+                    <button><span class="material-icons">favorite_border</span> 156</button>
+                    <button><span class="material-icons">chat_bubble_outline</span> 8</button>
+                    <button><span class="material-icons">share</span></button>
                 </div>
             </div>
-            <p class="review-text">"Great place for photography! The morning light creates magical moments. Don't forget to book a good hotel in advance during peak season. 📸 #Photography #Travel"</p>
-            <div class="review-images">
-               
-            </div>
-            <div class="review-actions">
-                <button><span class="material-icons">favorite_border</span> 156</button>
-                <button><span class="material-icons">chat_bubble_outline</span> 8</button>
-                <button><span class="material-icons">share</span></button>
-            </div>
         </div>
-    </div>
     </section>
-<!-- end testmonials -->
+    <!-- end testmonials -->
 
-  
-<!-- start Footer -->
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Footer Logo and Description -->
-        <div class="footer-about">
-            <h2>Explore Jharkhand</h2>
-            <p>Discover the beauty and heritage of Jharkhand, one district at a time. Let's explore the wonders of nature, culture, and history together.</p>
-        </div>
 
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/frontend/home.html">Home</a></li>
-                <li><a href="/frontend/home.html">Places</a></li>
-                <li><a href="/frontend/com/about.html">About</a></li>
-                <li><a href="/frontend/com/Service.html">Service</a></li>
-                <li><a href="/frontend/com/contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>Email : <a href="mailto:info@explorejharkhand.com">explorejharkhand@gmail.com</a></p>
-            <p>Phone : +91 7667985687</p>
-            <p>Location : Dhanbad, Jharkhand, India</p>
-        </div>
-
-        <!-- Social Media Icons -->
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <a href="https://www.facebook.com/explorejharkhand/" target="_blank"><img src="/frontend/assets/icon/facebook.png" alt="Facebook"></a>
-            <a href="https://twitter.com/visitjharkhand?lang=en" target="_blank"><img src="/frontend/assets/icon/twitter.png" alt="Twitter"></a>
-            <a href="https://www.instagram.com/jharkhandtourism/?hl=en"  target="_blank"><img src="/frontend/assets/icon/instagram.png" alt="Instagram"></a>
-            <a href="https://in.linkedin.com/company/government-of-jharkhand" target="_blank"><img src="/frontend/assets/icon/linkedin.png" alt="LinkedIn"></a>
-        </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="footer-bottom">
-        <p>&copy; 2024 Explore Jharkhand. All rights reserved.</p>
-    </div>
+    <!-- start Footer -->
+    <footer>
+        <div id="footer"></div>
     </footer>
-<!-- end Section -->
+    <!-- end Section -->
 
-
+    <script src="/frontend/component/navbar/navbar.js"></script>
     <script src="\frontend\cover\js\show js\ranchi js\show-1.js"></script>
-    
-    
+
+
 </body>
+
 </html>

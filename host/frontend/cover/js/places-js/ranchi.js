@@ -7,8 +7,7 @@ fetch('/frontend/component/footer/footer.html')
   document.getElementById('footer').innerHTML = data;
 });
 
-
- // JavaScript for Carousel, Auto-slide, and Favorite Button HSGF@7667
+// JavaScript for Carousel, Auto-slide, and Favorite Button HSGF@7667
 document.querySelectorAll(".card-carousel").forEach((carousel) => {
     const images = carousel.querySelectorAll("img");
     const dotsContainer = carousel.nextElementSibling;
@@ -281,13 +280,12 @@ function createAttractionCard(attraction, isNearby = false) {
                         <img src="/frontend${attraction.author.avatar}" alt="${attraction.author.name}" class="author-avatar">
                         <span class="author-name">By ${attraction.author.name}</span>
                     </div>
+                    <a href="/frontend/com/places/ranchi/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
                 `}
-                <a href="/frontend/com/places/ranchi/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
             </div>
         </div>
     `;
 }
-
 
 function toggleFavorite(button) {
     button.classList.toggle('active');

@@ -1,5 +1,4 @@
 // Fetch and inject navbar and footer HTML content
-
 fetch("/frontend/component/footer/footer.html")
   .then((res) => res.text())
   .then((data) => {
