@@ -7,219 +7,213 @@
     <title>Explore Jharkhand - Admin Portal</title>
     <link rel="icon" href="/frontend/assets/pic.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/frontend/admin/admin.css">
-    <link rel="stylesheet" href="/frontend/auth/style.css">
+    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">    
+    <link rel="stylesheet" href="\frontend\auth\style.css">    
+
 </head>
 
 <body>
-    <div id="loginPage" class="login-container">
-        <!-- Navbar -->
-        <header class="navbar" id="navbar">
-            <div class="navbar-container">
-                <!-- Logo -->
-                <div class="logo">
-                    <a href="#">Explore <span>Jharkhand</span></a>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="desktop-nav">
-                    <ul class="nav-list">
-                        <!-- Login Dropdown -->
-                        <li class="nav-links dropdown-parent">
-                            <a href="#" class="dropdown-trigger">
-                                Login another way
-                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6,9 12,15 18,9"></polyline>
-                                </svg>
-                            </a>
-                            <ul class="dropdown">
-                                <li><a href="#admin-login">Administrator Login</a></li>
-                                <li><a href="#guide-login">Tourist Guide Login</a></li>
-                                <li><a href="/frontend/auth/index.html">Traveler Login</a></li>
-                                <li><a href="/frontend/admin/chats/admin-chats.html">Live Chats</a></li>
-                                <li><a href="\frontend\admin\admin.html">Admin</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Toggle mobile menu">
-                    <svg class="menu-icon" id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                    <svg class="close-icon" id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        style="display: none;">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">Explore <span>Jharkhand</span></a>
             </div>
 
-            <!-- Mobile Navigation -->
-            <nav class="mobile-nav" id="mobile-nav">
-                <ul class="mobile-nav-list">
-                    <li class="mobile-dropdown">
-                        <button class="mobile-dropdown-trigger" id="places-dropdown-trigger">
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <!-- Login Dropdown -->
+                    <li class="nav-links dropdown-parent">
+                        <a href="#" class="dropdown-trigger">
                             Login another way
                             <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="6,9 12,15 18,9"></polyline>
                             </svg>
-                        </button>
-                        <ul class="mobile-dropdown-content" id="places-dropdown-content">
-                            <li><a href="#admin-login" class="mobile-nav-link">Administrator Login</a></li>
-                            <li><a href="#guide-login" class="mobile-nav-link">Tourist Guide Login</a></li>
-                            <li><a href="#traveler-login" class="mobile-nav-link">Traveler Login</a></li>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="#admin-login">Administrator Login</a></li>
+                            <li><a href="#guide-login">Tourist Guide Login</a></li>
+                            <li><a href="/frontend/auth/index.html">Traveler Login</a></li>
+                            <li><a href="/frontend/admin/chats/admin-chats.html">Live Chats</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
-        </header>
 
-        <div class="container">
-            <div class="forms-container">
-                <div class="signin-signup">
-                    <!-- Sign In Form -->
-                    <form id="sign-in-form" class="sign-in-form">
-                        <h2 class="title">ADMIN <span class="h-letter">LOGIN</span></h2>
-                        <div class="input-field">
-                            <i class="fas fa-user"></i>
-                            <input type="text" name="username" placeholder="Admin Username" required />
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" name="password" placeholder="Admin Password" required />
-                        </div>
-                        <input type="submit" value="Login" class="btn solid" />
-                        <p class="social-text">Secure Admin Access</p>
-                        <div class="social-media">
-                            <a href="https://www.facebook.com/" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                </svg>
-                            </a>
-                            <a href="https://twitter.com/login?" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                                </svg>
-                            </a>
-                            <a href="https://accounts.google.co.in/" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                                    <path
-                                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                                    <path
-                                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                                    <path
-                                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/login" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </form>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <svg class="menu-icon" id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon" id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
-                    <!-- Sign Up Form -->
-                    <form id="sign-up-form" class="sign-up-form">
-                        <h2 class="title">ADMIN <span class="h-letter">REGISTER</span></h2>
-                        <div class="input-field">
-                            <i class="fas fa-user"></i>
-                            <input type="text" name="username" placeholder="Admin Username" required />
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" name="email" placeholder="Admin Email" required />
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" name="password" placeholder="Admin Password" required />
-                        </div>
-                        <input type="submit" class="btn" value="Register" />
-                        <p class="social-text">Create Admin Account</p>
-                        <div class="social-media">
-                            <a href="https://www.facebook.com/" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                </svg>
-                            </a>
-                            <a href="https://twitter.com/login?" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                                </svg>
-                            </a>
-                            <a href="https://accounts.google.co.in/" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                                    <path
-                                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                                    <path
-                                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                                    <path
-                                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/login" class="social-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li class="mobile-dropdown">
+                    <button class="mobile-dropdown-trigger" id="places-dropdown-trigger">
+                        Login another way
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-dropdown-content" id="places-dropdown-content">
+                        <li><a href="#admin-login" class="mobile-nav-link">Administrator Login</a></li>
+                        <li><a href="#guide-login" class="mobile-nav-link">Tourist Guide Login</a></li>
+                        <li><a href="/frontend/auth/index.html" class="mobile-nav-link">Traveler Login</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="panels-container">
-                <div class="panel left-panel">
-                    <div class="content">
-                        <h3>New Admin? Register here!</h3>
-                        <p>
-                            Create your admin account to manage the Explore Jharkhand platform.<br>
-                            Secure access for administrators only.
-                        </p>
-                        <button class="btn transparent" id="sign-up-btn">
-                            Register
-                        </button>
+    <!-- Login Page -->
+    <div id="loginPage" class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Sign In Form -->
+                <form id="sign-in-form" class="sign-in-form">
+                    <h2 class="title">ADMIN <span class="h-letter">LOGIN</span></h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Admin Username" required />
                     </div>
-                    <img src="img/log.svg" class="image" alt="" />
-                </div>
-                <div class="panel right-panel">
-                    <div class="content">
-                        <h3>Welcome back, Admin!</h3>
-                        <p>
-                            Access your admin dashboard to manage the platform.
-                        </p>
-                        <button class="btn transparent" id="sign-in-btn">
-                            Sign in
-                        </button>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Admin Password" required />
                     </div>
-                    <img src="img/register.svg" class="image" alt="" />
-                </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    <p class="social-text">Secure Admin Access</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/login?" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                        <a href="https://accounts.google.co.in/" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                <path
+                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                <path
+                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                <path
+                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/login" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="sign-up-form" class="sign-up-form">
+                    <h2 class="title">ADMIN <span class="h-letter">REGISTER</span></h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Admin Username" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Admin Email" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Admin Password" required />
+                    </div>
+                    <input type="submit" class="btn" value="Register" />
+                    <p class="social-text">Create Admin Account</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/login?" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                        <a href="https://accounts.google.co.in/" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                <path
+                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                <path
+                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                <path
+                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/login" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
 
-    <!-- Custom Alert -->
-    <div id="custom-alert" class="custom-alert hidden">
-        <span id="alert-message"></span>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New Admin? Register here!</h3>
+                    <p>
+                        Create your admin account to manage the Explore Jharkhand platform.<br>
+                        Secure access for administrators only.
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Register
+                    </button>
+                </div>
+                <img src="\frontend\auth\img\log.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Welcome back, Admin!</h3>
+                    <p>
+                        Access your admin dashboard to manage the platform.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src="\frontend\auth\img\register.svg" class="image" alt="" />
+            </div>
+        </div>
     </div>
 
     <!-- Dashboard -->
@@ -259,6 +253,11 @@
                 <li class="sidebar-menu-item">
                     <a href="#" class="sidebar-menu-link" onclick="showPage('reviewsPage')">
                         <i class="fas fa-star"></i> Reviews
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('adminManagePage')">
+                        <i class="fas fa-user-shield"></i> Admin Management
                     </a>
                 </li>
                 <li class="sidebar-menu-item">
@@ -323,7 +322,7 @@
                                 <span class="stat-title">Total Users</span>
                                 <i class="fas fa-users stat-icon"></i>
                             </div>
-                            <div class="stat-value">12,847</div>
+                            <div class="stat-value" id="totalUsers">0</div>
                             <span class="stat-change positive">+12.5%</span>
                         </div>
                         <div class="stat-card">
@@ -331,7 +330,7 @@
                                 <span class="stat-title">Tourist Places</span>
                                 <i class="fas fa-map-marker-alt stat-icon"></i>
                             </div>
-                            <div class="stat-value">156</div>
+                            <div class="stat-value" id="totalAttractions">0</div>
                             <span class="stat-change positive">+3</span>
                         </div>
                         <div class="stat-card">
@@ -339,16 +338,16 @@
                                 <span class="stat-title">Reviews</span>
                                 <i class="fas fa-star stat-icon"></i>
                             </div>
-                            <div class="stat-value">2,341</div>
+                            <div class="stat-value" id="totalReviews">0</div>
                             <span class="stat-change positive">+18.2%</span>
                         </div>
                         <div class="stat-card">
                             <div class="stat-header">
-                                <span class="stat-title">Monthly Visitors</span>
-                                <i class="fas fa-eye stat-icon"></i>
+                                <span class="stat-title">Pending Guides</span>
+                                <i class="fas fa-user-clock stat-icon"></i>
                             </div>
-                            <div class="stat-value">45,678</div>
-                            <span class="stat-change positive">+8.1%</span>
+                            <div class="stat-value" id="pendingGuides">0</div>
+                            <span class="stat-change warning">Needs attention</span>
                         </div>
                     </div>
 
@@ -359,38 +358,50 @@
                                 <p class="card-description">Latest updates and user interactions</p>
                             </div>
                             <div class="card-content">
-                                <div id="recentActivity"></div>
+                                <div id="recentActivity">
+                                    <div class="activity-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <div>
+                                            <p>New user registered: Rahul Kumar</p>
+                                            <span>2 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <i class="fas fa-star"></i>
+                                        <div>
+                                            <p>New review for Hundru Falls</p>
+                                            <span>4 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div>
+                                            <p>New attraction added: Pahari Mandir</p>
+                                            <span>1 day ago</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Pending Actions</h3>
-                                <p class="card-description">Items requiring your attention</p>
+                                <h3 class="card-title">Quick Actions</h3>
+                                <p class="card-description">Common administrative tasks</p>
                             </div>
                             <div class="card-content">
-                                <div class="flex items-center justify-between mb-4"
-                                    style="padding: 12px; background: #fef3c7; border-radius: 8px;">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fas fa-exclamation-triangle" style="color: #d97706;"></i>
-                                        <div>
-                                            <p class="font-medium text-sm">Tourist Guide Applications</p>
-                                            <p class="text-xs text-gray-500">5 pending approvals</p>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-secondary btn-sm"
-                                        onclick="showPage('guidesPage')">Review</button>
-                                </div>
-                                <div class="flex items-center justify-between mb-4"
-                                    style="padding: 12px; background: #dbeafe; border-radius: 8px;">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fas fa-comments" style="color: #2563eb;"></i>
-                                        <div>
-                                            <p class="font-medium text-sm">User Reviews</p>
-                                            <p class="text-xs text-gray-500">12 reviews to moderate</p>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-secondary btn-sm"
-                                        onclick="showPage('reviewsPage')">Moderate</button>
+                                <div class="quick-actions">
+                                    <button class="btn btn-primary" onclick="showPage('attractionsPage')">
+                                        <i class="fas fa-plus"></i> Add Attraction
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('guidesPage')">
+                                        <i class="fas fa-check"></i> Review Guides
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('reviewsPage')">
+                                        <i class="fas fa-star"></i> Moderate Reviews
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('adminManagePage')">
+                                        <i class="fas fa-user-shield"></i> Manage Admins
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -505,47 +516,28 @@
                     <div class="tabs mb-6">
                         <button class="tab active" onclick="switchGuideTab('pending')">Pending Applications</button>
                         <button class="tab" onclick="switchGuideTab('approved')">Approved Guides</button>
+                        <button class="tab" onclick="switchGuideTab('rejected')">Rejected Applications</button>
                     </div>
 
                     <div class="card">
                         <div class="card-content">
-                            <div id="pendingGuidesTab" class="tab-content active">
-                                <div class="table-container">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Guide</th>
-                                                <th>Experience</th>
-                                                <th>Specialization</th>
-                                                <th>Location</th>
-                                                <th>Applied Date</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="pendingGuidesTable">
-                                            <!-- Dynamic content will be loaded here -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div id="approvedGuidesTab" class="tab-content">
-                                <div class="table-container">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Guide</th>
-                                                <th>Experience</th>
-                                                <th>Rating</th>
-                                                <th>Tours</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="approvedGuidesTable">
-                                            <!-- Dynamic content will be loaded here -->
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Guide</th>
+                                            <th>Experience</th>
+                                            <th>Specialization</th>
+                                            <th>Location</th>
+                                            <th>Applied Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="guidesTable">
+                                        <!-- Dynamic content will be loaded here -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -564,7 +556,43 @@
                                 <h3 class="card-title">Active Chats</h3>
                             </div>
                             <div id="chatUsersList">
-                                <!-- Dynamic content will be loaded here -->
+                                <div class="chat-item active">
+                                    <div class="flex items-center gap-3">
+                                        <div class="relative">
+                                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-user text-sm"></i>
+                                            </div>
+                                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center justify-between">
+                                                <p class="font-medium text-sm">Rahul Kumar</p>
+                                                <div class="flex items-center gap-1">
+                                                    <span class="text-xs text-gray-500">2 min ago</span>
+                                                    <span class="badge badge-danger">2</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-500 truncate">Can you help me plan a trip to Ranchi?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-item">
+                                    <div class="flex items-center gap-3">
+                                        <div class="relative">
+                                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-user text-sm"></i>
+                                            </div>
+                                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-500 rounded-full border-2 border-white"></div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center justify-between">
+                                                <p class="font-medium text-sm">Priya Singh</p>
+                                                <span class="text-xs text-gray-500">15 min ago</span>
+                                            </div>
+                                            <p class="text-sm text-gray-500 truncate">What are the best places to visit in winter?</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="chat-window">
@@ -572,17 +600,34 @@
                                 <div class="flex items-center gap-2">
                                     <i class="fas fa-user-circle" style="font-size: 24px;"></i>
                                     <div>
-                                        <h4 id="selectedUserName">Select a chat</h4>
+                                        <h4 id="selectedUserName">Rahul Kumar</h4>
                                         <p class="text-sm text-gray-500" id="selectedUserStatus">Online</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="chat-messages" id="chatMessages">
-                                <div class="text-center text-gray-500">Select a conversation to start chatting</div>
+                                <div class="message user">
+                                    <div class="message-content">
+                                        <p>Hi, I need help planning a trip to Ranchi. Can you suggest some good places?</p>
+                                        <p class="text-xs mt-1 opacity-70">10:30 AM</p>
+                                    </div>
+                                </div>
+                                <div class="message admin">
+                                    <div class="message-content">
+                                        <p>Hello Rahul! I'd be happy to help. For Ranchi, I recommend Hundru Falls, Jagannath Temple, and Rock Garden. How many days are you planning?</p>
+                                        <p class="text-xs mt-1 opacity-70">10:32 AM</p>
+                                    </div>
+                                </div>
+                                <div class="message user">
+                                    <div class="message-content">
+                                        <p>I'm planning for 3 days. Are there any good hotels near these places?</p>
+                                        <p class="text-xs mt-1 opacity-70">10:35 AM</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="chat-input">
-                                <input type="text" id="messageInput" placeholder="Type your message..." disabled>
-                                <button class="btn btn-primary" onclick="sendMessage()" disabled id="sendButton">
+                                <input type="text" id="messageInput" placeholder="Type your message...">
+                                <button class="btn btn-primary" onclick="sendMessage()" id="sendButton">
                                     <i class="fas fa-paper-plane"></i>
                                 </button>
                             </div>
@@ -621,6 +666,37 @@
                     </div>
                 </div>
 
+                <!-- Admin Management Page -->
+                <div id="adminManagePage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Admin Management</h1>
+                        <p class="page-description">Manage admin accounts and verification (Passwords visible as requested)</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Password</th>
+                                            <th>Verified</th>
+                                            <th>Status</th>
+                                            <th>Last Login</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="adminTable">
+                                        <!-- Dynamic content will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Analytics Page -->
                 <div id="analyticsPage" class="page hidden">
                     <div class="page-header">
@@ -631,18 +707,67 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Visitor Analytics</h3>
+                                <h3 class="card-title">Top Destinations</h3>
                             </div>
                             <div class="card-content">
-                                <canvas id="visitorChart" width="400" height="200"></canvas>
+                                <div id="topDestinations">
+                                    <div class="destination-item">
+                                        <span class="rank">1</span>
+                                        <div class="destination-info">
+                                            <h4>Hundru Falls</h4>
+                                            <p>2,847 views</p>
+                                        </div>
+                                    </div>
+                                    <div class="destination-item">
+                                        <span class="rank">2</span>
+                                        <div class="destination-info">
+                                            <h4>Betla National Park</h4>
+                                            <p>2,156 views</p>
+                                        </div>
+                                    </div>
+                                    <div class="destination-item">
+                                        <span class="rank">3</span>
+                                        <div class="destination-info">
+                                            <h4>Jagannath Temple</h4>
+                                            <p>1,923 views</p>
+                                        </div>
+                                    </div>
+                                    <div class="destination-item">
+                                        <span class="rank">4</span>
+                                        <div class="destination-info">
+                                            <h4>Netarhat</h4>
+                                            <p>1,654 views</p>
+                                        </div>
+                                    </div>
+                                    <div class="destination-item">
+                                        <span class="rank">5</span>
+                                        <div class="destination-info">
+                                            <h4>Deoghar Temple</h4>
+                                            <p>1,432 views</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Top Destinations</h3>
+                                <h3 class="card-title">User Growth</h3>
                             </div>
                             <div class="card-content">
-                                <div id="topDestinations"></div>
+                                <div class="growth-stats">
+                                    <div class="growth-item">
+                                        <span class="growth-label">This Month</span>
+                                        <span class="growth-value">+234 users</span>
+                                    </div>
+                                    <div class="growth-item">
+                                        <span class="growth-label">Last Month</span>
+                                        <span class="growth-value">+189 users</span>
+                                    </div>
+                                    <div class="growth-item">
+                                        <span class="growth-label">Growth Rate</span>
+                                        <span class="growth-value positive">+23.8%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -679,12 +804,12 @@
                             <div class="card-content">
                                 <div class="form-group">
                                     <label class="form-label">
-                                        <input type="checkbox" checked> Enable Two-Factor Authentication
+                                        <input type="checkbox" checked> Email Notifications
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">
-                                        <input type="checkbox" checked> Email Notifications
+                                        <input type="checkbox" checked> Auto-backup Database
                                     </label>
                                 </div>
                                 <button class="btn btn-primary">Update Security</button>
@@ -701,44 +826,56 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Add New Attraction</h3>
-                <p>Create a new tourist destination</p>
+                <button class="modal-close" onclick="closeModal('addAttractionModal')">&times;</button>
             </div>
-            <form id="addAttractionForm">
-                <div class="form-group">
-                    <label class="form-label">Attraction Name</label>
-                    <input type="text" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">District</label>
-                    <select class="form-input" required>
-                        <option value="">Select District</option>
-                        <option value="Ranchi">Ranchi</option>
-                        <option value="Jamshedpur">Jamshedpur</option>
-                        <option value="Dhanbad">Dhanbad</option>
-                        <option value="Bokaro">Bokaro</option>
-                        <option value="Latehar">Latehar</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Category</label>
-                    <select class="form-input" required>
-                        <option value="">Select Category</option>
-                        <option value="Waterfall">Waterfall</option>
-                        <option value="Wildlife">Wildlife</option>
-                        <option value="Religious">Religious</option>
-                        <option value="Adventure">Adventure</option>
-                        <option value="Cultural">Cultural</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Description</label>
-                    <textarea class="form-input" rows="3" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Entry Fee</label>
-                    <input type="text" class="form-input" placeholder="e.g., ₹20 or Free">
-                </div>
-            </form>
+            <div class="modal-body">
+                <form id="addAttractionForm">
+                    <div class="form-group">
+                        <label class="form-label">Attraction Name</label>
+                        <input type="text" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-input" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">District</label>
+                        <select name="district" class="form-input" required>
+                            <option value="">Select District</option>
+                            <option value="Ranchi">Ranchi</option>
+                            <option value="Jamshedpur">Jamshedpur</option>
+                            <option value="Dhanbad">Dhanbad</option>
+                            <option value="Bokaro">Bokaro</option>
+                            <option value="Latehar">Latehar</option>
+                            <option value="Deoghar">Deoghar</option>
+                            <option value="Ramgarh">Ramgarh</option>
+                            <option value="Hazaribagh">Hazaribagh</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select name="category" class="form-input" required>
+                            <option value="">Select Category</option>
+                            <option value="Waterfall">Waterfall</option>
+                            <option value="Wildlife">Wildlife</option>
+                            <option value="Religious">Religious</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Historical">Historical</option>
+                            <option value="Hill Station">Hill Station</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Entry Fee</label>
+                        <input type="text" name="entryFee" class="form-input" placeholder="e.g., ₹20 or Free">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <input type="checkbox" name="featured"> Featured Attraction
+                        </label>
+                    </div>
+                </form>
+            </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('addAttractionModal')">Cancel</button>
                 <button class="btn btn-primary" onclick="addAttraction()">Add Attraction</button>
@@ -746,6 +883,12 @@
         </div>
     </div>
 
-    <script src="\frontend\admin\admin.js"></script>
+    <!-- Custom Alert -->
+    <div id="custom-alert" class="custom-alert hidden">
+        <span id="alert-message"></span>
+    </div>
+
+    <script src="/frontend/admin/admin.js"></script>
+    
 </body>
 </html>
