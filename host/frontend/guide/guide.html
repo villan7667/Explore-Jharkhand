@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Jharkhand - Tourist Guide Portal</title>
+    <link rel="icon" href="/frontend/assets/pic.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/guide/guide.css">
+    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">
+    <link rel="stylesheet" href="/frontend/auth/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="#">Explore <span>Jharkhand</span></a>
+            </div>
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li class="nav-links dropdown-parent">
+                        <a href="#" class="dropdown-trigger">
+                            Login another way
+                            <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="/frontend/admin/admin.html">Administrator Login</a></li>
+                            <li><a href="/frontend/guide/guide.html">Tourist Guide Login</a></li>
+                            <li><a href="/frontend/auth/index.html">Traveler Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <svg class="menu-icon" id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon" id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li class="mobile-dropdown">
+                    <button class="mobile-dropdown-trigger" id="places-dropdown-trigger">
+                        Login another way
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-dropdown-content" id="places-dropdown-content">
+                        <li><a href="/frontend/admin/admin.html" class="mobile-nav-link">Administrator Login</a></li>
+                        <li><a href="/frontend/guide/guide.html" class="mobile-nav-link">Tourist Guide Login</a></li>
+                        <li><a href="/frontend/auth/index.html" class="mobile-nav-link">Traveler Login</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Sign In Form -->
+                <form id="sign-in-form" class="sign-in-form">
+                    <h2 class="title">TOURIST GUIDE <span class="h-letter">LOGIN</span></h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Email or Username" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Password" required />
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    <p class="social-text">Secure Guide Access</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/login?" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://accounts.google.co.in/" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/login" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="sign-up-form" class="sign-up-form">
+                    <h2 class="title">TOURIST GUIDE <span class="h-letter">REGISTER</span></h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="name" placeholder="Full Name" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Email Address" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Create Password (min 6 chars)" required minlength="6" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" name="phone" placeholder="Phone Number" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" name="location" placeholder="Location/City" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-briefcase"></i>
+                        <input type="text" name="experience" placeholder="Years of Experience" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-star"></i>
+                        <input type="text" name="specialization" placeholder="Specialization (e.g., Wildlife Tours)" required />
+                    </div>
+                    <input type="submit" class="btn" value="Apply as Guide" />
+                    <p class="social-text">Join Our Guide Network</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/login?" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://accounts.google.co.in/" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/login" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New Guide? Apply here!</h3>
+                    <p>
+                        Join our network of professional tourist guides and help travelers explore the beauty of Jharkhand.
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Apply Now
+                    </button>
+                </div>
+                <img src="/frontend/auth/img/log.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Welcome back, Guide!</h3>
+                    <p>
+                        Access your guide dashboard to manage bookings, interact with travelers, and grow your business.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src="/frontend/auth/img/register.svg" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-route"></i> Guide Portal</h2>
+                <p>Tourist Guide Dashboard</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link active" onclick="showPage('dashboardPage')">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('bookingsPage')">
+                        <i class="fas fa-calendar-check"></i> Bookings
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('requestsPage')">
+                        <i class="fas fa-hand-paper"></i> Tour Requests
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('profilePage')">
+                        <i class="fas fa-user-circle"></i> My Profile
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('availabilityPage')">
+                        <i class="fas fa-clock"></i> Availability
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('reviewsPage')">
+                        <i class="fas fa-star"></i> Reviews & Ratings
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('earningsPage')">
+                        <i class="fas fa-dollar-sign"></i> Earnings
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('chatPage')">
+                        <i class="fas fa-comments"></i> Messages
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('attractionsPage')">
+                        <i class="fas fa-map-marked-alt"></i> Local Attractions
+                    </a>
+                </li>
+                <li class="sidebar-menu-item" style="margin-top: auto; border-top: 1px solid #e5e7eb; padding-top: 20px;">
+                    <a href="#" class="sidebar-menu-link" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <button class="btn btn-secondary" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <input type="text" class="search-input" placeholder="Search bookings, travelers, attractions...">
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-secondary theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="notification-badge" class="btn btn-secondary notification-badge" data-count="0">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <button id="message-badge" class="btn btn-secondary notification-badge" data-count="0">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                    <div class="user-menu">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-user-circle"></i> <span id="guide-name">Guide</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Dashboard Page -->
+                <div id="dashboardPage" class="page active">
+                    <div class="page-header">
+                        <h1 class="page-title">Guide Dashboard</h1>
+                        <p class="page-description">Welcome back! Here's your guide activity overview.</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Tours</span>
+                                <i class="fas fa-route stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="totalTours">0</div>
+                            <span class="stat-change positive">+5 this month</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Pending Requests</span>
+                                <i class="fas fa-clock stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="pendingRequests">0</div>
+                            <span class="stat-change warning">Needs attention</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Average Rating</span>
+                                <i class="fas fa-star stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="averageRating">4.8</div>
+                            <span class="stat-change positive">Excellent</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Monthly Earnings</span>
+                                <i class="fas fa-dollar-sign stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="monthlyEarnings">₹0</div>
+                            <span class="stat-change positive">+15% from last month</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Bookings</h3>
+                                <p class="card-description">Your latest tour bookings</p>
+                            </div>
+                            <div class="card-content">
+                                <div id="recentBookings">
+                                    <!-- Dynamic content will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Quick Actions</h3>
+                                <p class="card-description">Common guide tasks</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="quick-actions">
+                                    <button class="btn btn-primary" onclick="showPage('requestsPage')">
+                                        <i class="fas fa-hand-paper"></i> View Requests
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('availabilityPage')">
+                                        <i class="fas fa-clock"></i> Update Availability
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('profilePage')">
+                                        <i class="fas fa-edit"></i> Edit Profile
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('chatPage')">
+                                        <i class="fas fa-comments"></i> Messages
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other pages remain the same as in your original file -->
+                <div id="bookingsPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">My Bookings</h1>
+                        <p class="page-description">Manage your confirmed tour bookings</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Traveler</th>
+                                            <th>Attraction</th>
+                                            <th>Date & Time</th>
+                                            <th>Duration</th>
+                                            <th>Group Size</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bookingsTable">
+                                        <!-- Dynamic content will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Requests Page -->
+                <div id="requestsPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Tour Requests</h1>
+                        <p class="page-description">Review and respond to new tour requests</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pending Requests</h3>
+                            <p class="card-description">Travelers waiting for your response</p>
+                        </div>
+                        <div class="card-content">
+                            <div id="tourRequests">
+                                <!-- Dynamic content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Page -->
+                <div id="profilePage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">My Profile</h1>
+                        <p class="page-description">Manage your guide profile and information</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Personal Information</h3>
+                            </div>
+                            <div class="card-content">
+                                <form id="profileForm">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" class="form-input" id="guideName" placeholder="Your full name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-input" id="guideEmail" placeholder="Your email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Phone</label>
+                                        <input type="tel" class="form-input" id="guidePhone" placeholder="Your phone number">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Location</label>
+                                        <input type="text" class="form-input" id="guideLocation" placeholder="Your location">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Bio</label>
+                                        <textarea class="form-input" id="guideBio" rows="4" placeholder="Tell travelers about yourself..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Professional Details</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="form-group">
+                                    <label class="form-label">Experience</label>
+                                    <input type="text" class="form-input" id="guideExperience" placeholder="Years of experience">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Languages</label>
+                                    <input type="text" class="form-input" id="guideLanguages" placeholder="Languages you speak">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Specialization</label>
+                                    <input type="text" class="form-input" id="guideSpecialization" placeholder="Your specialization">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Pricing (Half Day)</label>
+                                    <input type="number" class="form-input" id="halfDayPrice" placeholder="Half day rate">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Pricing (Full Day)</label>
+                                    <input type="number" class="form-input" id="fullDayPrice" placeholder="Full day rate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other pages (availability, reviews, earnings, chat, attractions) -->
+                <div id="availabilityPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Availability Management</h1>
+                        <p class="page-description">Set your available days and time slots</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Weekly Schedule</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="availabilitySchedule">
+                                <!-- Dynamic schedule will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reviewsPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Reviews & Ratings</h1>
+                        <p class="page-description">See what travelers say about your services</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div id="reviewsList">
+                                <!-- Dynamic reviews will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="earningsPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Earnings</h1>
+                        <p class="page-description">Track your income and payment history</p>
+                    </div>
+                    <div class="stats-grid mb-6">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Earnings</span>
+                                <i class="fas fa-dollar-sign stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="totalEarnings">₹0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">This Month</span>
+                                <i class="fas fa-calendar stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="monthEarnings">₹0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Pending Payment</span>
+                                <i class="fas fa-clock stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="pendingPayment">₹0</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Payment History</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="paymentHistory">
+                                <!-- Dynamic payment history will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="chatPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Messages</h1>
+                        <p class="page-description">Communicate with travelers and support</p>
+                    </div>
+                    <div class="chat-container">
+                        <div class="chat-list">
+                            <div class="card-header">
+                                <h3 class="card-title">Conversations</h3>
+                            </div>
+                            <div id="chatList">
+                                <!-- Dynamic chat list will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="chat-window">
+                            <div class="chat-header">
+                                <h4 id="chatTitle">Select a conversation</h4>
+                            </div>
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="text-center text-gray-500 mt-8">
+                                    Select a conversation to start messaging
+                                </div>
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" id="messageInput" placeholder="Type your message...">
+                                <button class="btn btn-primary" onclick="sendMessage()">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="attractionsPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Local Attractions</h1>
+                        <p class="page-description">Explore attractions in your area to offer better tours</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div id="attractionsList">
+                                <!-- Dynamic attractions will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Alert System -->
+    <div id="alert-container" class="alert-container"></div>
+
+    <!-- Load Socket.IO from CDN -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="/frontend/guide/guide.js"></script>
+
+    <style>
+    /* Enhanced Alert System Styles */
+    .alert-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        max-width: 400px;
+    }
+
+    .alert {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        margin-bottom: 12px;
+        overflow: hidden;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .alert.show {
+        transform: translateX(0);
+    }
+
+    .alert.hide {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    .alert-content {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .alert-icon {
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .alert-message {
+        flex: 1;
+        font-weight: 500;
+    }
+
+    .alert-close {
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+    }
+
+    .alert-close:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .alert-progress {
+        height: 3px;
+        background: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .alert-success {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+    }
+
+    .alert-error {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+    }
+
+    .alert-warning {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+    }
+
+    .alert-info {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+    }
+
+    @keyframes progress {
+        from { width: 100%; }
+        to { width: 0%; }
+    }
+    </style>
+</body>
+
+</html>

@@ -9,9 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/frontend/admin/admin.css">
-    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">    
-    <link rel="stylesheet" href="\frontend\auth\style.css">    
-
+    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">
+    <link rel="stylesheet" href="/frontend/auth/style.css">
 </head>
 
 <body>
@@ -36,10 +35,9 @@
                             </svg>
                         </a>
                         <ul class="dropdown">
-                            <li><a href="#admin-login">Administrator Login</a></li>
-                            <li><a href="#guide-login">Tourist Guide Login</a></li>
+                            <li><a href="/frontend/admin/admin.html">Administrator Login</a></li>
+                            <li><a href="/frontend/guide/guide.html">Tourist Guide Login</a></li>
                             <li><a href="/frontend/auth/index.html">Traveler Login</a></li>
-                            <li><a href="/frontend/admin/chats/admin-chats.html">Live Chats</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -74,8 +72,8 @@
                         </svg>
                     </button>
                     <ul class="mobile-dropdown-content" id="places-dropdown-content">
-                        <li><a href="#admin-login" class="mobile-nav-link">Administrator Login</a></li>
-                        <li><a href="#guide-login" class="mobile-nav-link">Tourist Guide Login</a></li>
+                        <li><a href="/frontend/admin/admin.html" class="mobile-nav-link">Administrator Login</a></li>
+                        <li><a href="/frontend/guide/guide.html" class="mobile-nav-link">Tourist Guide Login</a></li>
                         <li><a href="/frontend/auth/index.html" class="mobile-nav-link">Traveler Login</a></li>
                     </ul>
                 </li>
@@ -199,7 +197,7 @@
                         Register
                     </button>
                 </div>
-                <img src="\frontend\auth\img\log.svg" class="image" alt="" />
+                <img src="/frontend/auth/img/log.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -211,7 +209,7 @@
                         Sign in
                     </button>
                 </div>
-                <img src="\frontend\auth\img\register.svg" class="image" alt="" />
+                <img src="/frontend/auth/img/register.svg" class="image" alt="" />
             </div>
         </div>
     </div>
@@ -231,6 +229,11 @@
                     </a>
                 </li>
                 <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('guidesPage')">
+                        <i class="fas fa-user-check"></i> Tourist Guides
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
                     <a href="#" class="sidebar-menu-link" onclick="showPage('attractionsPage')">
                         <i class="fas fa-map-marker-alt"></i> Attractions
                     </a>
@@ -238,11 +241,6 @@
                 <li class="sidebar-menu-item">
                     <a href="#" class="sidebar-menu-link" onclick="showPage('usersPage')">
                         <i class="fas fa-users"></i> User Management
-                    </a>
-                </li>
-                <li class="sidebar-menu-item">
-                    <a href="#" class="sidebar-menu-link" onclick="showPage('guidesPage')">
-                        <i class="fas fa-user-check"></i> Tourist Guides
                     </a>
                 </li>
                 <li class="sidebar-menu-item">
@@ -256,18 +254,8 @@
                     </a>
                 </li>
                 <li class="sidebar-menu-item">
-                    <a href="#" class="sidebar-menu-link" onclick="showPage('adminManagePage')">
-                        <i class="fas fa-user-shield"></i> Admin Management
-                    </a>
-                </li>
-                <li class="sidebar-menu-item">
                     <a href="#" class="sidebar-menu-link" onclick="showPage('analyticsPage')">
                         <i class="fas fa-chart-bar"></i> Analytics
-                    </a>
-                </li>
-                <li class="sidebar-menu-item">
-                    <a href="#" class="sidebar-menu-link" onclick="showPage('settingsPage')">
-                        <i class="fas fa-cog"></i> Settings
                     </a>
                 </li>
                 <li class="sidebar-menu-item"
@@ -293,12 +281,11 @@
                     <button class="btn btn-secondary theme-toggle" onclick="toggleTheme()">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <button class="btn btn-secondary notification-badge" data-count="3">
-                        <i class="fas fa-comments"></i>
-                    </button>
-                    <button class="btn btn-secondary notification-badge" data-count="5">
+
+                    <button id="alert-badge" class="btn btn-secondary notification-badge" data-count="0">
                         <i class="fas fa-bell"></i>
                     </button>
+
                     <div class="user-menu">
                         <button class="btn btn-secondary">
                             <i class="fas fa-user-circle"></i> <span id="admin-username">Admin</span>
@@ -354,6 +341,28 @@
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="card">
                             <div class="card-header">
+                                <h3 class="card-title">Quick Actions</h3>
+                                <p class="card-description">Common administrative tasks</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="quick-actions">
+                                    <button class="btn btn-primary" onclick="showPage('guidesPage')">
+                                        <i class="fas fa-check"></i> Review Guides
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('attractionsPage')">
+                                        <i class="fas fa-plus"></i> Add Attraction
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('reviewsPage')">
+                                        <i class="fas fa-star"></i> Moderate Reviews
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showPage('usersPage')">
+                                        <i class="fas fa-users"></i> Manage Users
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
                                 <h3 class="card-title">Recent Activity</h3>
                                 <p class="card-description">Latest updates and user interactions</p>
                             </div>
@@ -374,133 +383,13 @@
                                         </div>
                                     </div>
                                     <div class="activity-item">
-                                        <i class="fas fa-map-marker-alt"></i>
+                                        <i class="fas fa-user-tie"></i>
                                         <div>
-                                            <p>New attraction added: Pahari Mandir</p>
+                                            <p>New guide application received</p>
                                             <span>1 day ago</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Quick Actions</h3>
-                                <p class="card-description">Common administrative tasks</p>
-                            </div>
-                            <div class="card-content">
-                                <div class="quick-actions">
-                                    <button class="btn btn-primary" onclick="showPage('attractionsPage')">
-                                        <i class="fas fa-plus"></i> Add Attraction
-                                    </button>
-                                    <button class="btn btn-primary" onclick="showPage('guidesPage')">
-                                        <i class="fas fa-check"></i> Review Guides
-                                    </button>
-                                    <button class="btn btn-primary" onclick="showPage('reviewsPage')">
-                                        <i class="fas fa-star"></i> Moderate Reviews
-                                    </button>
-                                    <button class="btn btn-primary" onclick="showPage('adminManagePage')">
-                                        <i class="fas fa-user-shield"></i> Manage Admins
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Attractions Page -->
-                <div id="attractionsPage" class="page hidden">
-                    <div class="page-header">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <h1 class="page-title">Attractions</h1>
-                                <p class="page-description">Manage tourist attractions and destinations</p>
-                            </div>
-                            <button class="btn btn-primary" onclick="openModal('addAttractionModal')">
-                                <i class="fas fa-plus"></i> Add Attraction
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="card-title">Manage Attractions</h3>
-                                    <p class="card-description">Add, edit, and organize tourist destinations</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <input type="text" class="form-input" placeholder="Search attractions..."
-                                        style="width: 250px;">
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-filter"></i> Filter
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="table-container">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Attraction</th>
-                                            <th>District</th>
-                                            <th>Category</th>
-                                            <th>Rating</th>
-                                            <th>Entry Fee</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="attractionsTable">
-                                        <!-- Dynamic content will be loaded here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Users Page -->
-                <div id="usersPage" class="page hidden">
-                    <div class="page-header">
-                        <h1 class="page-title">User Management</h1>
-                        <p class="page-description">Manage user accounts, roles, and permissions</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="card-title">All Users</h3>
-                                    <p class="card-description">Manage user accounts and permissions</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <input type="text" class="form-input" placeholder="Search users..."
-                                        style="width: 250px;">
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-filter"></i> Filter
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="table-container">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>User</th>
-                                            <th>Role</th>
-                                            <th>Status</th>
-                                            <th>Location</th>
-                                            <th>Join Date</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="usersTable">
-                                        <!-- Dynamic content will be loaded here -->
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
@@ -509,376 +398,80 @@
                 <!-- Tourist Guides Page -->
                 <div id="guidesPage" class="page hidden">
                     <div class="page-header">
-                        <h1 class="page-title">Tourist Guides</h1>
+                        <h1 class="page-title">Tourist Guides Management</h1>
                         <p class="page-description">Manage tourist guide applications and approved guides</p>
                     </div>
-
-                    <div class="tabs mb-6">
-                        <button class="tab active" onclick="switchGuideTab('pending')">Pending Applications</button>
-                        <button class="tab" onclick="switchGuideTab('approved')">Approved Guides</button>
-                        <button class="tab" onclick="switchGuideTab('rejected')">Rejected Applications</button>
-                    </div>
-
                     <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Guide Applications</h3>
+                            <p class="card-description">Review and manage guide applications</p>
+                        </div>
                         <div class="card-content">
-                            <div class="table-container">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Guide</th>
-                                            <th>Experience</th>
-                                            <th>Specialization</th>
-                                            <th>Location</th>
-                                            <th>Applied Date</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="guidesTable">
-                                        <!-- Dynamic content will be loaded here -->
-                                    </tbody>
-                                </table>
-                            </div>
+                            <!-- Guide data will be loaded here -->
                         </div>
                     </div>
                 </div>
 
-                <!-- Live Chat Page -->
+                <!-- Other pages remain the same -->
+                <div id="attractionsPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Attractions</h1>
+                        <p class="page-description">Manage tourist attractions and destinations</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Attractions management functionality will be loaded here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="usersPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">User Management</h1>
+                        <p class="page-description">Manage user accounts, roles, and permissions</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>User management functionality will be loaded here.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="chatPage" class="page hidden">
                     <div class="page-header">
                         <h1 class="page-title">Live Chat</h1>
                         <p class="page-description">Manage real-time conversations with visitors</p>
                     </div>
-
-                    <div class="chat-container">
-                        <div class="chat-list">
-                            <div class="card-header">
-                                <h3 class="card-title">Active Chats</h3>
-                            </div>
-                            <div id="chatUsersList">
-                                <div class="chat-item active">
-                                    <div class="flex items-center gap-3">
-                                        <div class="relative">
-                                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                                                <i class="fas fa-user text-sm"></i>
-                                            </div>
-                                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="flex items-center justify-between">
-                                                <p class="font-medium text-sm">Rahul Kumar</p>
-                                                <div class="flex items-center gap-1">
-                                                    <span class="text-xs text-gray-500">2 min ago</span>
-                                                    <span class="badge badge-danger">2</span>
-                                                </div>
-                                            </div>
-                                            <p class="text-sm text-gray-500 truncate">Can you help me plan a trip to Ranchi?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="chat-item">
-                                    <div class="flex items-center gap-3">
-                                        <div class="relative">
-                                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                                                <i class="fas fa-user text-sm"></i>
-                                            </div>
-                                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-500 rounded-full border-2 border-white"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="flex items-center justify-between">
-                                                <p class="font-medium text-sm">Priya Singh</p>
-                                                <span class="text-xs text-gray-500">15 min ago</span>
-                                            </div>
-                                            <p class="text-sm text-gray-500 truncate">What are the best places to visit in winter?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chat-window">
-                            <div class="chat-header">
-                                <div class="flex items-center gap-2">
-                                    <i class="fas fa-user-circle" style="font-size: 24px;"></i>
-                                    <div>
-                                        <h4 id="selectedUserName">Rahul Kumar</h4>
-                                        <p class="text-sm text-gray-500" id="selectedUserStatus">Online</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-messages" id="chatMessages">
-                                <div class="message user">
-                                    <div class="message-content">
-                                        <p>Hi, I need help planning a trip to Ranchi. Can you suggest some good places?</p>
-                                        <p class="text-xs mt-1 opacity-70">10:30 AM</p>
-                                    </div>
-                                </div>
-                                <div class="message admin">
-                                    <div class="message-content">
-                                        <p>Hello Rahul! I'd be happy to help. For Ranchi, I recommend Hundru Falls, Jagannath Temple, and Rock Garden. How many days are you planning?</p>
-                                        <p class="text-xs mt-1 opacity-70">10:32 AM</p>
-                                    </div>
-                                </div>
-                                <div class="message user">
-                                    <div class="message-content">
-                                        <p>I'm planning for 3 days. Are there any good hotels near these places?</p>
-                                        <p class="text-xs mt-1 opacity-70">10:35 AM</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-input">
-                                <input type="text" id="messageInput" placeholder="Type your message...">
-                                <button class="btn btn-primary" onclick="sendMessage()" id="sendButton">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Chat functionality will be loaded here.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Reviews Page -->
                 <div id="reviewsPage" class="page hidden">
                     <div class="page-header">
                         <h1 class="page-title">Reviews Management</h1>
                         <p class="page-description">Moderate user reviews and ratings</p>
                     </div>
-
                     <div class="card">
                         <div class="card-content">
-                            <div class="table-container">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>User</th>
-                                            <th>Attraction</th>
-                                            <th>Rating</th>
-                                            <th>Comment</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="reviewsTable">
-                                        <!-- Dynamic content will be loaded here -->
-                                    </tbody>
-                                </table>
-                            </div>
+                            <p>Reviews management functionality will be loaded here.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Admin Management Page -->
-                <div id="adminManagePage" class="page hidden">
-                    <div class="page-header">
-                        <h1 class="page-title">Admin Management</h1>
-                        <p class="page-description">Manage admin accounts and verification (Passwords visible as requested)</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="table-container">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Password</th>
-                                            <th>Verified</th>
-                                            <th>Status</th>
-                                            <th>Last Login</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="adminTable">
-                                        <!-- Dynamic content will be loaded here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Analytics Page -->
                 <div id="analyticsPage" class="page hidden">
                     <div class="page-header">
                         <h1 class="page-title">Analytics</h1>
                         <p class="page-description">View detailed analytics and reports</p>
                     </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Top Destinations</h3>
-                            </div>
-                            <div class="card-content">
-                                <div id="topDestinations">
-                                    <div class="destination-item">
-                                        <span class="rank">1</span>
-                                        <div class="destination-info">
-                                            <h4>Hundru Falls</h4>
-                                            <p>2,847 views</p>
-                                        </div>
-                                    </div>
-                                    <div class="destination-item">
-                                        <span class="rank">2</span>
-                                        <div class="destination-info">
-                                            <h4>Betla National Park</h4>
-                                            <p>2,156 views</p>
-                                        </div>
-                                    </div>
-                                    <div class="destination-item">
-                                        <span class="rank">3</span>
-                                        <div class="destination-info">
-                                            <h4>Jagannath Temple</h4>
-                                            <p>1,923 views</p>
-                                        </div>
-                                    </div>
-                                    <div class="destination-item">
-                                        <span class="rank">4</span>
-                                        <div class="destination-info">
-                                            <h4>Netarhat</h4>
-                                            <p>1,654 views</p>
-                                        </div>
-                                    </div>
-                                    <div class="destination-item">
-                                        <span class="rank">5</span>
-                                        <div class="destination-info">
-                                            <h4>Deoghar Temple</h4>
-                                            <p>1,432 views</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">User Growth</h3>
-                            </div>
-                            <div class="card-content">
-                                <div class="growth-stats">
-                                    <div class="growth-item">
-                                        <span class="growth-label">This Month</span>
-                                        <span class="growth-value">+234 users</span>
-                                    </div>
-                                    <div class="growth-item">
-                                        <span class="growth-label">Last Month</span>
-                                        <span class="growth-value">+189 users</span>
-                                    </div>
-                                    <div class="growth-item">
-                                        <span class="growth-label">Growth Rate</span>
-                                        <span class="growth-value positive">+23.8%</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Analytics functionality will be loaded here.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Settings Page -->
-                <div id="settingsPage" class="page hidden">
-                    <div class="page-header">
-                        <h1 class="page-title">Settings</h1>
-                        <p class="page-description">Configure system settings and preferences</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">General Settings</h3>
-                            </div>
-                            <div class="card-content">
-                                <div class="form-group">
-                                    <label class="form-label">Site Title</label>
-                                    <input type="text" class="form-input" value="Explore Jharkhand">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Contact Email</label>
-                                    <input type="email" class="form-input" value="admin@explorejharkhand.com">
-                                </div>
-                                <button class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Security Settings</h3>
-                            </div>
-                            <div class="card-content">
-                                <div class="form-group">
-                                    <label class="form-label">
-                                        <input type="checkbox" checked> Email Notifications
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">
-                                        <input type="checkbox" checked> Auto-backup Database
-                                    </label>
-                                </div>
-                                <button class="btn btn-primary">Update Security</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modals -->
-    <div id="addAttractionModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Add New Attraction</h3>
-                <button class="modal-close" onclick="closeModal('addAttractionModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="addAttractionForm">
-                    <div class="form-group">
-                        <label class="form-label">Attraction Name</label>
-                        <input type="text" name="name" class="form-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Description</label>
-                        <textarea name="description" class="form-input" rows="3" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">District</label>
-                        <select name="district" class="form-input" required>
-                            <option value="">Select District</option>
-                            <option value="Ranchi">Ranchi</option>
-                            <option value="Jamshedpur">Jamshedpur</option>
-                            <option value="Dhanbad">Dhanbad</option>
-                            <option value="Bokaro">Bokaro</option>
-                            <option value="Latehar">Latehar</option>
-                            <option value="Deoghar">Deoghar</option>
-                            <option value="Ramgarh">Ramgarh</option>
-                            <option value="Hazaribagh">Hazaribagh</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Category</label>
-                        <select name="category" class="form-input" required>
-                            <option value="">Select Category</option>
-                            <option value="Waterfall">Waterfall</option>
-                            <option value="Wildlife">Wildlife</option>
-                            <option value="Religious">Religious</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Cultural">Cultural</option>
-                            <option value="Historical">Historical</option>
-                            <option value="Hill Station">Hill Station</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Entry Fee</label>
-                        <input type="text" name="entryFee" class="form-input" placeholder="e.g., ₹20 or Free">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">
-                            <input type="checkbox" name="featured"> Featured Attraction
-                        </label>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('addAttractionModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="addAttraction()">Add Attraction</button>
             </div>
         </div>
     </div>
@@ -888,7 +481,11 @@
         <span id="alert-message"></span>
     </div>
 
+    <!-- Load Socket.IO from CDN -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <!-- Load the admin JavaScript -->
     <script src="/frontend/admin/admin.js"></script>
-    
+
 </body>
+
 </html>

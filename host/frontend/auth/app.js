@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
         alertBox.classList.remove("show")
-      }, 3000)
+      }, 9000)
     }
   }
 
