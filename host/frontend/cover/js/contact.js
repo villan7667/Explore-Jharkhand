@@ -6,46 +6,6 @@ fetch("/frontend/component/footer/footer.html")
     document.getElementById("footer").innerHTML = data;
   });
 
-// Contact form submission handling
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Still prevent default, but we use fetch now
-
-    const form = event.target;
-    const formData = new FormData(form);
-
-    fetch("https://formspree.io/f/xwplakko", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Show the Thank You popup
-          const popup = document.getElementById("thank-you-popup");
-          popup.classList.add("show-popup");
-
-          // Clear the form
-          form.reset();
-
-          // Hide the popup and reload after 3 seconds
-          setTimeout(() => {
-            popup.classList.remove("show-popup");
-            location.reload();
-          }, 3000);
-        } else {
-          alert("Something went wrong. Please try again!");
-        }
-      })
-      .catch((error) => {
-        console.error("Formspree error:", error);
-        alert("There was a problem submitting the form.");
-      });
-  });
-
 // Close the Thank You popup when the close button is clicked
 
 let chatId = "";

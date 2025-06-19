@@ -15,7 +15,12 @@ const io = socketIo(server, {
   },
 })
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
+server.listen(PORT, HOST, () => {
+  console.log(`🌐 Server running at http://${HOST}:${PORT}`);
+});
+
 
 // MongoDB connection
 mongoose
@@ -25,7 +30,7 @@ mongoose
   .then(() => console.log("✅ MongoDB connected successfully"))
   .catch((err) => console.log("❌ MongoDB connection error:", err))
 
-// Enhanced Admin Schema with proper role hierarchy
+//  Admin Schema with proper role hierarchy
 const adminSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
@@ -53,7 +58,7 @@ const adminSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 })
 
-// Pre-save middleware to set permissions based on role
+//  middleware to set permissions based on role
 adminSchema.pre("save", function (next) {
   if (this.role === "superadmin") {
     this.permissions = {
@@ -92,7 +97,7 @@ adminSchema.pre("save", function (next) {
 
 const Admin = mongoose.model("Admin", adminSchema)
 
-// Enhanced User Schema
+//  User Schema hsgf
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
@@ -124,7 +129,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema)
 
-// Enhanced Attractions Schema
+//  Attractions Schema
 const attractionSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
@@ -161,7 +166,7 @@ const attractionSchema = new mongoose.Schema({
 
 const Attraction = mongoose.model("Attraction", attractionSchema)
 
-// Enhanced Tourist Guides Schema
+// Tourist Guides Schema
 const guideSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
@@ -212,7 +217,7 @@ const guideSchema = new mongoose.Schema({
 
 const Guide = mongoose.model("Guide", guideSchema)
 
-// Enhanced Reviews Schema
+//  Reviews Schema
 const reviewSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   userName: { type: String, required: true },
@@ -244,7 +249,7 @@ const reviewSchema = new mongoose.Schema({
 
 const Review = mongoose.model("Review", reviewSchema)
 
-// Enhanced Chat Messages Schema
+// Chat Messages Schema
 const chatMessageSchema = new mongoose.Schema({
   chatId: { type: String, required: true },
   name: { type: String, required: true },
@@ -267,7 +272,7 @@ const chatMessageSchema = new mongoose.Schema({
 
 const ChatMessage = mongoose.model("ChatMessage", chatMessageSchema)
 
-// Enhanced Bookings Schema with Guide Integration
+//  Bookings Schema with Guide Integration
 const bookingSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   guide: { type: mongoose.Schema.Types.ObjectId, ref: "Guide" },
@@ -540,7 +545,7 @@ const requireGuideAuth = (req, res, next) => {
 
 // ==================== GUIDE AUTHENTICATION ROUTES ====================
 
-// Guide Login Route - FIXED
+// Guide Login Route 
 app.post("/api/guide/login", async (req, res) => {
   const { username, password } = req.body
 
@@ -633,7 +638,7 @@ app.post("/api/guide/login", async (req, res) => {
   }
 })
 
-// Guide Registration Route - FIXED
+// Guide Registration Route - hsgf
 app.post("/api/guide/apply", async (req, res) => {
   const { name, email, password, phone, location, experience, specialization } = req.body
 

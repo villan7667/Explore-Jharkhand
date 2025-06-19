@@ -1633,7 +1633,7 @@ form {
 
 @media (max-width: 570px) {
     form {
-        padding: 0 1.5rem;
+        padding: 0 0 5rem;
     }
 
     .image {
