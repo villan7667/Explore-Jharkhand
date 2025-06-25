@@ -118,7 +118,7 @@ const topAttractions = [
     },
     {
         id: 5,
-        name: "Ram Raj Mandill",
+        name: "Ram Raj Mandir",
         category: "Religious Sites",
         rating: 3.5,
         reviews: 72,
@@ -251,7 +251,7 @@ function createAttractionCard(attraction, isNearby = false) {
                         <img src="/frontend${attraction.author.avatar}" alt="${attraction.author.name}" class="author-avatar">
                         <span class="author-name">By ${attraction.author.name}</span>
                     </div>
-                    <a href="/frontend/com/places/ranchi/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
+                    <a href="/frontend/com/places/dhanbad/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
                 `}
             </div>
         </div>

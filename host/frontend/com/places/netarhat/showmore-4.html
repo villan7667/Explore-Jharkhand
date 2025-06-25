@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betla National Park - Explore Jharkhand</title>
+    <link rel="icon" href="/frontend/assets/pic.png" type="image/png">
+    <link rel="stylesheet" href="\frontend\cover\css\showmore\ranchi\show-1.css">
+    <!-- External CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend\cover\css\home.css">
+    <link rel="stylesheet" href="/frontend/component/navbar/navbar.css">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">Explore <span>Jharkhand</span></a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/frontend/home.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="/frontend/com/Service.html">Service</a>
+                    </li>
+
+                    <!-- Places Dropdown -->
+                    <li class="nav-links dropdown-parent">
+                        <a href="#" class="dropdown-trigger">
+                            Places
+                            <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="/frontend/com/places/ranchi.html">Ranchi</a></li>
+                            <li><a href="/frontend/com/places/bokaro.html">Bokaro</a></li>
+                            <li><a href="/frontend/com/places/deoghar.html">Deoghar</a></li>
+                            <li><a href="/frontend/com/places/jamshedpur.html">Jamshedpur</a></li>
+                            <li><a href="/frontend/com/places/dhanbad.html">Dhanbad</a></li>
+                            <li><a href="/frontend/com/places/Netarhat.html">netarhat</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/frontend/com/contact.html">Contact</a>
+                    </li>
+
+                    <!-- User Dropdown -->
+                    <li class="user-logo dropdown-parent">
+                        <a href="#" class="user-trigger">
+                            <img src="/frontend/assets/icon/user.png" alt="User Icon" />
+                        </a>
+                        <ul class="user-dropdown">
+                            <li>
+                                <span class="user-details" id="user-details">Guest</span>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/history.html">History</a>
+                            </li>
+                            <li>
+                                <a href="/frontend/com/cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="/frontend/home.html" class="mobile-nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/about.html" class="mobile-nav-link">About</a>
+                </li>
+                <li>
+                    <a href="/frontend/com/Service.html" class="mobile-nav-link">Service</a>
+                </li>
+
+                <!-- Mobile Places Dropdown -->
+                <li class="mobile-dropdown">
+                    <button class="mobile-dropdown-trigger" id="places-dropdown-trigger">
+                        Places
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-dropdown-content" id="places-dropdown-content">
+                        <li><a href="/frontend/com/places/ranchi.html" class="mobile-nav-link">Ranchi</a></li>
+                        <li><a href="/frontend/com/places/bokaro.html" class="mobile-nav-link">Bokaro</a></li>
+                        <li><a href="/frontend/com/places/deoghar.html" class="mobile-nav-link">Deoghar</a></li>
+                        <li><a href="/frontend/com/places/jamshedpur.html" class="mobile-nav-link">Jamshedpur</a></li>
+                        <li><a href="/frontend/com/places/dhanbad.html" class="mobile-nav-link">Dhanbad</a></li>
+                        <li><a href="/frontend/com/places/Netarhat.html" class="mobile-nav-link">netarhat</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/frontend/com/contact.html" class="mobile-nav-link">Contact</a>
+                </li>
+
+                <!-- Mobile User Section -->
+                <li class="mobile-user-section">
+                    <button class="mobile-user-trigger" id="user-dropdown-trigger">
+                        <svg class="user-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span id="mobile-user-name">Guest</span>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="mobile-user-dropdown" id="user-dropdown-content">
+                        <li>
+                            <a href="/frontend/com/history.html" class="mobile-nav-link">History</a>
+                        </li>
+                        <li>
+                            <a href="/frontend/com/cart.html" class="mobile-nav-link">Cart</a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="mobile-nav-link">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- start hero  -->
+    <section class="hero">
+        <div class="slider">
+            <div class="slide">
+                <img src="/frontend/assets/places/netarhat/showmore/betla/hero1.jpg" alt="hero 1">
+            </div>
+            <div class="slide">
+                <img src="/frontend/assets/places/netarhat/showmore/betla/hero2.jpg" alt="hero 2">
+            </div>
+            <div class="slide">
+                <img src="/frontend/assets/places/netarhat/showmore/betla/hero3.jpg" alt="hero 3">
+            </div>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Betla National Park</h1>
+                <p>Discover the wild heart of Jharkhand at Betla National Park</p>
+            </div>
+        </div>
+    </section>
+    <!-- end hero -->
+
+    <!-- History Section -->
+    <section id="history" class="history">
+        <div class="content">
+            <h2>History of Betla National Park</h2>
+            <p align="justify">Betla National Park, located in the Latehar district of Jharkhand, is one of India's earliest tiger reserves under Project Tiger. Established in 1960, the park is renowned for its rich biodiversity, dense forests, and scenic beauty. The name 'Betla' is derived from the local tribal languages, representing Bison, Elephant, Tiger, Leopard, and Axis (deer). The park is also home to ancient forts and tribal heritage, making it a unique blend of nature and history.</p>
+        </div>
+        <div class="scattered-images">
+            <img src="/frontend/assets/places/netarhat/showmore/betla/his1.jpg" alt="Betla National Park History 1">
+            <img src="\frontend\assets\places\netarhat\grid\park2.jpg" alt="Betla National Park History 2">
+            <img src="\frontend\assets\places\netarhat\grid\park3.jpg" alt="Betla National Park History 3">
+            <img src="/frontend/assets/places/netarhat/showmore/betla/his4.jpg" alt="Betla National Park History 4">
+            <img src="/frontend/assets/places/netarhat/showmore/betla/his5.jpg" alt="Betla National Park History 5">
+        </div>
+    </section>
+    <!-- end history  -->
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <!-- Visitors -->
+                <div class="stat-card">
+                    <span class="material-icons">groups</span>
+                    <div class="number" data-value="200000">0</div>
+                    <div class="label">Annual Visitors</div>
+                </div>
+
+                <!-- Rating -->
+                <div class="stat-card">
+                    <span class="material-icons">star</span>
+                    <div class="number" data-value="92">0</div>
+                    <div class="label">Satisfaction %</div>
+                </div>
+
+                <!-- Photos -->
+                <div class="stat-card">
+                    <span class="material-icons">photo_camera</span>
+                    <div class="number" data-value="120000">0</div>
+                    <div class="label">Photos Shared</div>
+                </div>
+
+                <!-- Reviews -->
+                <div class="stat-card">
+                    <span class="material-icons">favorite</span>
+                    <div class="number" data-value="95">0</div>
+                    <div class="label">Positive Reviews</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Section -->
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="hotel-section">
+            <h2>Featured Hotels</h2>
+            <div class="hotel-cards">
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="/frontend/assets/places/netarhat/showmore/betla/hotel1.jpg" alt="Luxury Hotel">
+                        <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Betla Jungle Resort</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star_half</span>
+                            <span>(4.5/5)</span>
+                        </div>
+                        <p class="features">Safari • Restaurant • WiFi • Nature Walks</p>
+                        <p class="review">"A perfect retreat for wildlife lovers and families"</p>
+                        <div class="price">Starting from ₹3,499/night</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="/frontend/assets/places/netarhat/showmore/betla/hotel2.jpg" alt="Premium Resort">
+                        <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Van Vihar Betla</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(4.0/5)</span>
+                        </div>
+                        <p class="features">Restaurant • WiFi • Jungle View • Parking</p>
+                        <p class="review">"Serene environment with excellent hospitality"</p>
+                        <div class="price">Starting from ₹2,999/night</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="/frontend/assets/places/netarhat/showmore/betla/hotel3.jpg" alt="Comfort Hotel">
+                        <button class="favorite-btn"><span class="material-icons">favorite_border</span></button>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Forest Rest House</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(4.2/5)</span>
+                        </div>
+                        <p class="features">WiFi • Restaurant • Guided Tours</p>
+                        <p class="review">"Comfortable stay amidst nature and wildlife"</p>
+                        <div class="price">Starting from ₹2,499/night</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cab-section">
+            <h2>Available Cabs</h2>
+            <div class="cab-cards">
+                <div class="cab-card">
+                    <div class="cab-image">
+                        <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab1.jpg" alt="Premium SUV">
+                    </div>
+                    <div class="cab-info">
+                        <h3>Premium SUV</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(4.0/5)</span>
+                        </div>
+                        <p class="features">AC • 6 Seater • GPS • 24/7</p>
+                        <div class="price">₹15/km</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="cab-card">
+                    <div class="cab-image">
+                        <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab2.jpg" alt="Sedan">
+                    </div>
+                    <div class="cab-info">
+                        <h3>Comfort Sedan</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(4.2/5)</span>
+                        </div>
+                        <p class="features">AC • 4 Seater • GPS • 24/7</p>
+                        <div class="price">₹12/km</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="cab-card">
+                    <div class="cab-image">
+                        <img src="/frontend/assets/places/ranchi/showmore/dassam fall/cab3.png" alt="Hatchback">
+                    </div>
+                    <div class="cab-info">
+                        <h3>Economy Hatchback</h3>
+                        <div class="rating">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span>(3.8/5)</span>
+                        </div>
+                        <p class="features">AC • 4 Seater • GPS</p>
+                        <div class="price">₹10/km</div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of booking section -->
+
+    <!-- map start -->
+    <section class="map">
+        <h2>Location & Directions</h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.017889485707!2d84.10305907520962!3d23.85796328452737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398b2b2e7b8e6e7b%3A0x2e7b8e6e7b8e6e7b!2sBetla%20National%20Park!5e0!3m2!1sen!2sin!4v1717840000000!5m2!1sen!2sin"
+            width="100%" height="200" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+    <!-- end map -->
+
+    <!-- start testmonials -->
+    <section id="testimonials" class="testimonials">
+        <h2>Traveler Says</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review1.png" alt="User"
+                        class="user-avatar">
+                    <div class="user-details">
+                        <h4>Riya Sharma</h4>
+                        <span>2 days ago</span>
+                    </div>
+                </div>
+                <p class="review-text">"Exploring Betla National Park was an unforgettable adventure! The wildlife sightings and lush greenery made it a perfect escape from city life. #Betla #Wildlife"</p>
+                <div class="review-images">
+
+                </div>
+                <div class="review-actions">
+                    <button><span class="material-icons">favorite_border</span> 245</button>
+                    <button><span class="material-icons">chat_bubble_outline</span> 18</button>
+                    <button><span class="material-icons">share</span></button>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review2.png" alt="User"
+                        class="user-avatar">
+                    <div class="user-details">
+                        <h4>Priya Patel</h4>
+                        <span>1 week ago</span>
+                    </div>
+                </div>
+                <p class="review-text">"A wonderful weekend at Betla! The resorts were comfortable and the safari was thrilling. Highly recommended for nature lovers. <br>💚 #BetlaNationalPark #Safari"</p>
+                <div class="review-images">
+
+                </div>
+                <div class="review-actions">
+                    <button><span class="material-icons">favorite_border</span> 189</button>
+                    <button><span class="material-icons">chat_bubble_outline</span> 12</button>
+                    <button><span class="material-icons">share</span></button>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <img src="/frontend/assets/places/ranchi/showmore/dassam fall/review3.png" alt="User"
+                        class="user-avatar">
+                    <div class="user-details">
+                        <h4>Amit Kumar</h4>
+                        <span>2 weeks ago</span>
+                    </div>
+                </div>
+                <p class="review-text">"Betla National Park is a paradise for photographers! The early morning safari offered amazing shots of wildlife and landscapes. 📸 #Photography #Betla"</p>
+                <div class="review-images">
+
+                </div>
+                <div class="review-actions">
+                    <button><span class="material-icons">favorite_border</span> 156</button>
+                    <button><span class="material-icons">chat_bubble_outline</span> 8</button>
+                    <button><span class="material-icons">share</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end testmonials -->
+
+    <!-- start Footer -->
+    <footer>
+        <div id="footer"></div>
+    </footer>
+    <!-- end Section -->
+
+    <script src="/frontend/component/navbar/navbar.js"></script>
+    <script src="\frontend\cover\js\show js\ranchi js\show-1.js"></script>
+
+</body>
+
+</html>

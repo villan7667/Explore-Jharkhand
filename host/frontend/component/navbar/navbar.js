@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "/frontend/com/places/deoghar.html": "places",
       "/frontend/com/places/jamshedpur.html": "places",
       "/frontend/com/places/dhanbad.html": "places",
-      "/frontend/com/places/naterhart.html": "places",
+      "/frontend/com/places/Netarhat.html": "places",
     };
 
     // Remove all existing active classes

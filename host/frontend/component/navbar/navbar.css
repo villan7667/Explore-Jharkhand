@@ -62,6 +62,25 @@ html,body {
 .logo span {
     color: #5d5d5d;
 }
+/* Dropdown fix */
+.navbar .dropdown,
+.navbar .dropdown ul {
+  position: absolute;
+  top: 100%;
+  background: rgb(255, 255, 255);
+  z-index: 9999 !important;
+  display: block;
+}
+
+.dropdown-parent {
+  position: relative;
+  z-index: 9999 !important;
+}
+
+.header {
+  z-index: 50; /* Keep lower than dropdown */
+}
+
 
 /* ----------------------------------- */
 /* Desktop Navigation */

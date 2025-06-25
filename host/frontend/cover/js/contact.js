@@ -27,7 +27,7 @@ function toggleChat() {
   }
 }
 
-function startChat() {
+async function startChat() {
   const nameInput = document.getElementById("userName");
   const emailInput = document.getElementById("userEmail");
 
@@ -39,21 +39,31 @@ function startChat() {
     return;
   }
 
-  // Generate unique chat ID
-  chatId = `chat_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+  try {
+    // Request server to give existing chatId (if any)
+    const res = await fetch("/api/chat/find", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: userEmail }),
+    });
 
-  // Hide welcome form and show chat
-  document.getElementById("welcomeForm").style.display = "none";
-  document.getElementById("messagesContainer").style.display = "block";
-  document.getElementById("messageForm").style.display = "block";
+    const result = await res.json();
 
-  // Add welcome message
-  addMessage(`Hi ${userName}! How can I help you today?`, "admin");
+    if (result.success && result.chatId) {
+      chatId = result.chatId;
+    } else {
+      chatId = `chat_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+    }
 
-  // Start polling for messages
-  pollMessages();
+    document.getElementById("welcomeForm").style.display = "none";
+    document.getElementById("messagesContainer").style.display = "block";
+    document.getElementById("messageForm").style.display = "block";
+
+    pollMessages();
+  } catch (err) {
+    console.error("Error fetching chat:", err);
+  }
 }
-
 function addMessage(content, sender, timestamp = null) {
   const messagesContainer = document.getElementById("messagesContainer");
   const messageDiv = document.createElement("div");
@@ -343,7 +353,7 @@ function loadGuides() {
       {
           id: 1,
           name: "Ravi Kumar",
-          image: "/placeholder.svg?height=120&width=120",
+          image: "./frontend/assets/home/visitor/reviewer1.png",
           specialization: "Ranchi & Netarhat",
           experience: "8+ years",
           languages: ["Hindi", "English"],
@@ -357,10 +367,10 @@ function loadGuides() {
       {
           id: 2,
           name: "Sunita Singh",
-          image: "/placeholder.svg?height=120&width=120",
+          image: "./assets/home/visitor/reviewer2.png",
           specialization: "Deoghar & Bokaro",
           experience: "5 years",
-          languages: ["Hindi", "English", "Bengali"],
+          languages: ["Hindi", "English",],
           rating: 4.8,
           reviews: 89,
           phone: "+91 9123456780",
@@ -371,7 +381,7 @@ function loadGuides() {
       {
           id: 3,
           name: "Ajay Das",
-          image: "/placeholder.svg?height=120&width=120",
+          image: "./assets/home/visitor/reviewer3.png",
           specialization: "Jamshedpur & Dhanbad",
           experience: "10+ years",
           languages: ["Hindi", "English", "Santhali"],
@@ -385,7 +395,7 @@ function loadGuides() {
       {
           id: 4,
           name: "Priya Verma",
-          image: "/placeholder.svg?height=120&width=120",
+          image: "/assets/home/visitor/reviewer1.png",
           specialization: "Wildlife & Nature",
           experience: "7 years",
           languages: ["Hindi", "English"],
@@ -1253,7 +1263,8 @@ document.addEventListener('DOMContentLoaded', function() {
     new ContactMethodsComponent();
     new FAQComponent();
     new NewsletterComponent();
-});// Live Chat Widget JavaScript
+});
+// Live Chat Widget JavaScript
 
 class LiveChatWidget {
     constructor() {

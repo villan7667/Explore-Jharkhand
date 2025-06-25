@@ -200,7 +200,7 @@ class TripPlanner {
                     }
                 }
             },
-            naterhart: {
+            Netarhat: {
                 map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.4817522171394!2d84.264469175853!3d23.47102747981878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398b25cb5cd97ad9%3A0x6b91818aee1802e2!2sNetarhat!5e0!3m2!1sen!2sin!4v1672568121445!5m2!1sen!2sin',
                 premium: {
                     day1: {
@@ -415,6 +415,149 @@ window.onerror = function(msg, url, lineNo, columnNo, error) {
     console.error('Error:', msg, '\nURL:', url, '\nLine:', lineNo, '\nColumn:', columnNo, '\nError object:', error);
     return false;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Load tourist guides data
+function loadGuides() {
+  const guides = [
+      {
+        id: 1,
+        name: "Ravi Kumar",
+        image: "/frontend/assets/home/visitor/reviewer1.png",
+        specialization: "Ranchi & Netarhat",
+        experience: "8+ years",
+        languages: ["Hindi", "English"],
+        rating: 4.9,
+        reviews: 156,
+        phone: "+91 9876543210",
+        verified: true,
+        trusted: true,
+        description: "Expert in hill stations and cultural tours"
+    },
+    {
+        id: 2,
+        name: "Sunita Singh",
+        image: "/assets/home/visitor/reviewer2.png",
+        specialization: "Deoghar & Bokaro",
+        experience: "5 years",
+        languages: ["Hindi", "English",],
+        rating: 4.8,
+        reviews: 89,
+        phone: "+91 9123456780",
+        verified: true,
+        trusted: false,
+        description: "Religious sites and temple tour specialist"
+    },
+    {
+        id: 3,
+        name: "Ajay Das",
+        image: "/assets/home/visitor/reviewer3.png",
+        specialization: "Jamshedpur & Dhanbad",
+        experience: "10+ years",
+        languages: ["Hindi", "English", "Santhali"],
+        rating: 4.9,
+        reviews: 203,
+        phone: "+91 9988776655",
+        verified: true,
+        trusted: true,
+        description: "Industrial heritage and nature tours"
+    },
+    {
+        id: 4,
+        name: "Priya Verma",
+        image: "/assets/home/visitor/reviewer1.png",
+        specialization: "Wildlife & Nature",
+        experience: "7 years",
+        languages: ["Hindi", "English"],
+        rating: 4.7,
+        reviews: 124,
+        phone: "+91 9876501234",
+        verified: true,
+        trusted: false,
+        description: "Wildlife photography and nature walks"
+    }
+  ];
+  
+  const guidesGrid = document.getElementById('guides-grid');
+  if (guidesGrid) {
+      guidesGrid.innerHTML = guides.map(guide => createGuideCard(guide)).join('');
+      guidesGrid.classList.add('stagger-animation');
+  }
+}
+
+  
+  // Create guide card HTML
+  function createGuideCard(guide) {
+    const stars = '★'.repeat(Math.floor(guide.rating)) + (guide.rating % 1 ? '☆' : '');
+    
+    return `
+        <div class="guide-card hover-lift">
+            <div class="guide-avatar">
+                <img src="${guide.image}" alt="${guide.name}">
+                ${guide.verified ? '<div class="guide-verified"><i class="fas fa-check"></i></div>' : ''}
+            </div>
+            
+            <div class="guide-info">
+                <div class="guide-name">
+                    ${guide.name}
+                    ${guide.trusted ? '<i class="fas fa-award" style="color: #f59e0b;"></i>' : ''}
+                </div>
+                
+                <div class="guide-rating">
+                    <span style="color: #fbbf24;">${stars}</span>
+                    <span style="font-weight: 500; margin-left: 0.25rem;">${guide.rating}</span>
+                    <span style="color: var(--text-light); margin-left: 0.25rem;">(${guide.reviews})</span>
+                </div>
+                
+                <div class="guide-badges">
+                    ${guide.verified ? '<span class="badge verified">Verified</span>' : ''}
+                    ${guide.trusted ? '<span class="badge trusted">Trusted</span>' : ''}
+                </div>
+            </div>
+            
+            <div class="guide-details">
+                <div class="guide-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${guide.specialization}</span>
+                </div>
+                <div class="guide-detail">
+                    <i class="fas fa-award"></i>
+                    <span>${guide.experience} experience</span>
+                </div>
+                <div class="guide-detail">
+                    <i class="fas fa-language"></i>
+                    <span>${guide.languages.join(', ')}</span>
+                </div>
+            </div>
+            
+            <div class="guide-description">
+                ${guide.description}
+            </div>
+            
+            <div class="guide-actions">
+                <button class="btn btn-primary" onclick="contactGuide('${guide.phone}')">
+                    <i class="fas fa-phone"></i>
+                    Contact Guide
+                </button>
+                <button class="btn btn-outline" onclick="viewGuideProfile(${guide.id})">
+                    View Profile
+                </button>
+            </div>
+        </div>
+    `;
+  }
 
 
 

@@ -1,4 +1,23 @@
 {
+  "name": "explorejharkhand",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Ankit Kumar",
+  "license": "ISC",
+  "description": "Backend server for Explore Jharkhand application",
+  "keywords": [
+    "express",
+    "mongodb",
+    "socket.io",
+    "google-api"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",

@@ -21,7 +21,6 @@ server.listen(PORT, HOST, () => {
   console.log(`🌐 Server running at http://${HOST}:${PORT}`);
 });
 
-
 // MongoDB connection
 mongoose
   .connect(
@@ -29,6 +28,136 @@ mongoose
   )
   .then(() => console.log("✅ MongoDB connected successfully"))
   .catch((err) => console.log("❌ MongoDB connection error:", err))
+
+
+// Middlewares
+app.use(cors({ origin: "*", credentials: true }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: "explore_jharkhand_chat_secret",
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 24 * 60 * 60 * 1000 }
+}));
+app.use(express.static(path.join(__dirname, "../host")));
+app.use("/frontend", express.static(path.join(__dirname, "../host/frontend")));
+
+// Mongoose schema
+const chatMessageSchema = new mongoose.Schema({
+  chatId: { type: String, required: true },
+  name: String,
+  email: String,
+  message: String,
+  sender: { type: String, enum: ["user", "admin"] },
+  adminId: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" },
+  timestamp: { type: Date, default: Date.now }
+});
+const ChatMessage = mongoose.model("ChatMessage", chatMessageSchema);
+
+// 🚀 Chat API Endpoints
+
+// Save message from user
+app.post("/api/chat/send", async (req, res) => {
+  const { chatId, name, email, message } = req.body;
+  if (!chatId || !name || !email || !message) return res.status(400).json({ success: false });
+  try {
+    const msg = await ChatMessage.create({ chatId, name, email, message, sender: "user" });
+    io.to(chatId).emit("new-chat-message", msg);
+    res.json({ success: true });
+  } catch (err) {
+    console.error("User chat error:", err);
+    res.status(500).json({ success: false });
+  }
+});
+
+// Admin sends reply
+app.post("/api/chats/send-message", async (req, res) => {
+  const { chatId, message, adminId } = req.body;
+  if (!chatId || !message || !adminId) return res.status(400).json({ success: false });
+  try {
+    const lastUser = await ChatMessage.findOne({ chatId, sender: "user" }).sort({ timestamp: -1 });
+    const msg = await ChatMessage.create({
+      chatId,
+      message,
+      name: "Admin",
+      email: lastUser?.email || "admin@support.com",
+      sender: "admin",
+      adminId
+    });
+    io.to(chatId).emit("new-chat-message", msg);
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Admin chat error:", err);
+    res.status(500).json({ success: false });
+  }
+});
+
+// Get message history (admin and user)
+app.get("/api/chats/:chatId/messages", async (req, res) => {
+  try {
+    const messages = await ChatMessage.find({ chatId: req.params.chatId }).sort({ timestamp: 1 });
+    res.json({ success: true, messages });
+  } catch (err) {
+    res.status(500).json({ success: false, messages: [] });
+  }
+});
+
+// Get message history for user
+app.get("/api/chat/messages/:chatId", async (req, res) => {
+  try {
+    const messages = await ChatMessage.find({ chatId: req.params.chatId }).sort({ timestamp: 1 });
+    res.json(messages);
+  } catch (err) {
+    res.status(500).json([]);
+  }
+});
+
+// Find existing chat by email
+app.post("/api/chat/find", async (req, res) => {
+  const { email } = req.body;
+  if (!email) return res.json({ success: false });
+  const recent = await ChatMessage.findOne({ email }).sort({ timestamp: -1 });
+  if (recent) return res.json({ success: true, chatId: recent.chatId });
+  res.json({ success: false });
+});
+
+// List of active chat sessions (for admin UI)
+app.get("/api/chats/active", async (req, res) => {
+  try {
+    const chats = await ChatMessage.aggregate([
+      { $sort: { timestamp: -1 } },
+      {
+        $group: {
+          _id: "$chatId",
+          chatId: { $first: "$chatId" },
+          name: { $first: "$name" },
+          email: { $first: "$email" },
+          lastMessage: { $first: "$message" },
+          timestamp: { $first: "$timestamp" },
+        },
+      },
+      { $sort: { timestamp: -1 } }
+    ]);
+    res.json({ success: true, chats });
+  } catch (err) {
+    res.status(500).json({ success: false });
+  }
+});
+
+// 🔌 Socket.IO Connection
+io.on("connection", (socket) => {
+  console.log("🔌 Client connected:", socket.id);
+
+  socket.on("join-chat", (chatId) => {
+    socket.join(chatId);
+    console.log(`📥 Joined chat room: ${chatId}`);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("🔌 Client disconnected:", socket.id);
+  });
+});
 
 //  Admin Schema with proper role hierarchy
 const adminSchema = new mongoose.Schema({
@@ -249,28 +378,6 @@ const reviewSchema = new mongoose.Schema({
 
 const Review = mongoose.model("Review", reviewSchema)
 
-// Chat Messages Schema
-const chatMessageSchema = new mongoose.Schema({
-  chatId: { type: String, required: true },
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  message: { type: String, required: true },
-  sender: { type: String, enum: ["user", "admin"], required: true },
-  adminId: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" },
-  timestamp: { type: Date, default: Date.now },
-  isRead: { type: Boolean, default: false },
-  messageType: {
-    type: String,
-    enum: ["text", "image", "file"],
-    default: "text",
-  },
-  attachments: [String],
-  metadata: {
-    guideId: { type: mongoose.Schema.Types.ObjectId, ref: "Guide" },
-  },
-})
-
-const ChatMessage = mongoose.model("ChatMessage", chatMessageSchema)
 
 //  Bookings Schema with Guide Integration
 const bookingSchema = new mongoose.Schema({
@@ -544,6 +651,38 @@ const requireGuideAuth = (req, res, next) => {
 }
 
 // ==================== GUIDE AUTHENTICATION ROUTES ====================
+
+
+app.post("/api/contact-chat", async (req, res) => {
+  try {
+    const { firstName, lastName, email, phone, subject, message } = req.body;
+    const chatId = email + "-" + Date.now(); // unique ID for chat
+
+    const chatMessage = new ChatMessage({
+      chatId,
+      name: `${firstName} ${lastName}`,
+      email,
+      message,
+      sender: "user"
+    });
+
+    await chatMessage.save();
+
+    // Notify admins via Socket.IO
+    notifyAdmins("new-chat-started", {
+      chatId,
+      userName: `${firstName} ${lastName}`,
+      email,
+      subject,
+      message
+    });
+
+    res.json({ success: true, chatId });
+  } catch (err) {
+    console.error("Error in contact chat:", err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
 
 // Guide Login Route 
 app.post("/api/guide/login", async (req, res) => {
@@ -983,9 +1122,179 @@ app.put("/api/guide/profile", requireGuideAuth, async (req, res) => {
     res.status(500).json({ success: false, message: "Error updating profile" })
   }
 })
+// === API ROUTES TO ADD ===
+
+ 
+// Dashboard: Recent Activity
+app.get("/api/dashboard/recent-activity", async (req, res) => {
+  try {
+    const recentAdmins = await Admin.find().sort({ createdAt: -1 }).limit(5);
+    const recentUsers = await User.find().sort({ createdAt: -1 }).limit(5);
+    const activities = [];
+
+    recentAdmins.forEach(admin => activities.push({
+      type: "admin_registered",
+      message: `Admin ${admin.username} registered`,
+      createdAt: admin.createdAt
+    }));
+    recentUsers.forEach(user => activities.push({
+      type: "user_registered",
+      message: `User ${user.username} registered`,
+      createdAt: user.createdAt
+    }));
+
+    activities.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+    res.json({ success: true, activities });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Failed to load recent activity" });
+  }
+});
+
+// Dashboard: Stats
+app.get("/api/dashboard/stats", async (req, res) => {
+  try {
+    const totalUsers = await User.countDocuments();
+    const totalAttractions = await Attraction.countDocuments();
+    const totalReviews = await Review.countDocuments();
+    const pendingGuides = await Guide.countDocuments({ status: "pending" });
+    const pendingAdmins = await Admin.countDocuments({ isVerified: false });
+
+    res.json({
+      success: true,
+      stats: { totalUsers, totalAttractions, totalReviews, pendingGuides, pendingAdmins }
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Failed to load stats" });
+  }
+});
+
+// Chats: Unread Count
+app.get("/api/chats/unread-count", async (req, res) => {
+  try {
+    const count = await ChatMessage.countDocuments({ isRead: false });
+    res.json({ success: true, count });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Failed to load unread count" });
+  }
+});
+
+// Chats: Active Chats
+app.get("/api/chats/active", async (req, res) => {
+  try {
+    const activeChats = await ChatMessage.aggregate([
+      { $group: { _id: "$chatId", lastMessage: { $last: "$message" } } }
+    ]);
+    res.json({ success: true, chats: activeChats });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Failed to load active chats" });
+  }
+});
+
+// List Attractions
+app.get("/api/attractions", async (req, res) => {
+  try {
+    const attractions = await Attraction.find().limit(50);
+    res.json({ success: true, attractions });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Failed to load attractions" });
+  }
+});
+
+// List Users
+app.get("/api/users", async (req, res) => {
+  try {
+    const users = await User.find().limit(50);
+    res.json({ success: true, users });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Failed to load users" });
+  }
+});
+
+// List Admins
+app.get("/api/admins/list", async (req, res) => {
+  try {
+    const admins = await Admin.find();
+    res.json({ success: true, admins });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Failed to load admins" });
+  }
+});
 
 // ==================== ADMIN AUTHENTICATION ROUTES ====================
 
+// Fetch All Admins
+app.get("/api/admins", requireAuth, requirePermission("canManageAdmins"), async (req, res) => {
+  try {
+    const admins = await Admin.find().sort({ createdAt: -1 });
+    res.json({ success: true, admins });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+// Approve/Verify Admin
+app.put("/api/admins/:id/verify", requireAuth, requirePermission("canManageAdmins"), async (req, res) => {
+  try {
+    const admin = await Admin.findByIdAndUpdate(req.params.id, {
+      isVerified: true,
+      isActive: true,
+    }, { new: true });
+
+    if (!admin) return res.status(404).json({ success: false, message: "Admin not found" });
+
+    notifyAdmins("admin-approved", { admin });
+    res.json({ success: true, admin });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+//  Suspend Admin
+app.put("/api/admins/:id/suspend", requireAuth, requirePermission("canManageAdmins"), async (req, res) => {
+  try {
+    const admin = await Admin.findByIdAndUpdate(req.params.id, {
+      isActive: false
+    }, { new: true });
+
+    if (!admin) return res.status(404).json({ success: false, message: "Admin not found" });
+
+    res.json({ success: true, admin });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+// Register Admin API
+app.post("/api/admin/register", async (req, res) => {
+  try {
+    const { username, email, password } = req.body
+
+    // Check if username or email exists
+    const existingAdmin = await Admin.findOne({ $or: [{ username }, { email }] })
+    if (existingAdmin) {
+      return res.status(400).json({ success: false, message: "Admin already exists" })
+    }
+
+    // Create new admin
+    const newAdmin = new Admin({ username, email, password })
+    await newAdmin.save()
+
+    // Notify superadmin via socket
+    notifyAdmins("new-admin-application", { admin: newAdmin })
+
+    res.status(201).json({ success: true, message: "Admin registered successfully" })
+  } catch (error) {
+    console.error("Register error:", error)
+    res.status(500).json({ success: false, message: "Server error during registration" })
+  }
+})
 app.post("/api/admin/login", async (req, res) => {
   const { username, password } = req.body
 
@@ -1107,6 +1416,7 @@ app.get("/api/dashboard/stats", requireAuth, async (req, res) => {
     res.status(500).json({ success: false, message: "Error fetching stats" })
   }
 })
+
 
 // Traveler Authentication Routes
 app.post("/api/auth/register", async (req, res) => {

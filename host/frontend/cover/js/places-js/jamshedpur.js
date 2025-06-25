@@ -252,7 +252,7 @@ function createAttractionCard(attraction, isNearby = false) {
                         <img src="/frontend${attraction.author.avatar}" alt="${attraction.author.name}" class="author-avatar">
                         <span class="author-name">By ${attraction.author.name}</span>
                     </div>
-                    <a href="/frontend/com/places/ranchi/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
+                    <a href="/frontend/com/places/jamshedpur/showmore-${attraction.id}.html" class="show-more-btn">Show More</a>
                 `}
             </div>
         </div>

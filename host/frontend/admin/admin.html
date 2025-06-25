@@ -219,8 +219,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="sidebar-header">
-                <h2><i class="fas fa-map-marker-alt"></i> Explore Jharkhand</h2>
-                <p>Admin Portal</p>
+                <h2><i class="fas fa-map-marker-alt"></i>Admin dashboard</h2>
             </div>
             <ul class="sidebar-menu">
                 <li class="sidebar-menu-item">
@@ -253,9 +252,20 @@
                         <i class="fas fa-star"></i> Reviews
                     </a>
                 </li>
+                <!-- Admin Management - Only visible for superadmin -->
+                <li class="sidebar-menu-item" id="adminManageMenuItem" style="display: none;">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('adminManagePage')">
+                        <i class="fas fa-user-shield"></i> Admin Management
+                    </a>
+                </li>
                 <li class="sidebar-menu-item">
                     <a href="#" class="sidebar-menu-link" onclick="showPage('analyticsPage')">
                         <i class="fas fa-chart-bar"></i> Analytics
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link" onclick="showPage('settingsPage')">
+                        <i class="fas fa-cog"></i> Settings
                     </a>
                 </li>
                 <li class="sidebar-menu-item"
@@ -336,6 +346,15 @@
                             <div class="stat-value" id="pendingGuides">0</div>
                             <span class="stat-change warning">Needs attention</span>
                         </div>
+                        <!-- New stat card for pending admins -->
+                        <div class="stat-card" id="pendingAdminsCard" style="display: none;">
+                            <div class="stat-header">
+                                <span class="stat-title">Pending Admins</span>
+                                <i class="fas fa-user-shield stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="pendingAdmins">0</div>
+                            <span class="stat-change warning">Needs review</span>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4 mb-6">
@@ -357,6 +376,15 @@
                                     </button>
                                     <button class="btn btn-primary" onclick="showPage('usersPage')">
                                         <i class="fas fa-users"></i> Manage Users
+                                    </button>
+                                    <!-- Admin Management Quick Action - Only for superadmin -->
+                                    <button class="btn btn-primary" id="adminManageQuickAction"
+                                        onclick="showPage('adminManagePage')" style="display: none;">
+                                        <i class="fas fa-user-shield"></i> Manage Admins
+                                    </button>
+                                    <!-- Live Chat Quick Action -->
+                                    <button class="btn btn-primary" onclick="showPage('chatPage')">
+                                        <i class="fas fa-comments"></i> Live Chat
                                     </button>
                                 </div>
                             </div>
@@ -404,51 +432,233 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Guide Applications</h3>
-                            <p class="card-description">Review and manage guide applications</p>
                         </div>
                         <div class="card-content">
-                            <!-- Guide data will be loaded here -->
+                            <p>Guide management functionality will be loaded here.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Other pages remain the same -->
+                <!-- Attractions Page -->
                 <div id="attractionsPage" class="page hidden">
                     <div class="page-header">
-                        <h1 class="page-title">Attractions</h1>
+                        <h1 class="page-title">Attractions Management</h1>
                         <p class="page-description">Manage tourist attractions and destinations</p>
+                        <button class="btn btn-primary" onclick="showAddAttractionModal()">
+                            <i class="fas fa-plus"></i> Add New Attraction
+                        </button>
                     </div>
+
+                    <!-- Attractions Stats -->
+                    <div class="stats-grid mb-6">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Attractions</span>
+                                <i class="fas fa-map-marker-alt stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="totalAttractionsCount">0</div>
+                            <span class="stat-change positive">+3 this month</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Popular Attractions</span>
+                                <i class="fas fa-star stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="popularAttractionsCount">0</div>
+                            <span class="stat-change positive">High rated</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Views</span>
+                                <i class="fas fa-eye stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="totalViews">0</div>
+                            <span class="stat-change positive">+12.5%</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Avg Rating</span>
+                                <i class="fas fa-star-half-alt stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="avgRating">0</div>
+                            <span class="stat-change positive">4.2/5</span>
+                        </div>
+                    </div>
+
+                    <!-- Attractions Grid -->
                     <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">All Attractions</h3>
+                            <div class="card-actions">
+                                <select id="categoryFilter" class="form-select">
+                                    <option value="">All Categories</option>
+                                    <option value="waterfall">Waterfalls</option>
+                                    <option value="temple">Temples</option>
+                                    <option value="park">National Parks</option>
+                                    <option value="hill">Hill Stations</option>
+                                </select>
+                                <input type="text" id="searchAttractions" class="form-input"
+                                    placeholder="Search attractions...">
+                            </div>
+                        </div>
                         <div class="card-content">
-                            <p>Attractions management functionality will be loaded here.</p>
+                            <div class="attractions-grid" id="attractionsGrid">
+                                <!-- Attractions will be loaded here -->
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Users Page -->
                 <div id="usersPage" class="page hidden">
                     <div class="page-header">
                         <h1 class="page-title">User Management</h1>
                         <p class="page-description">Manage user accounts, roles, and permissions</p>
                     </div>
+
+                    <!-- User Stats -->
+                    <div class="stats-grid mb-6">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Users</span>
+                                <i class="fas fa-users stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="totalUsersCount">0</div>
+                            <span class="stat-change positive">All registered users</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Active Users</span>
+                                <i class="fas fa-user-check stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="activeUsersCount">0</div>
+                            <span class="stat-change positive">Currently active</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Travelers</span>
+                                <i class="fas fa-map-marked-alt stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="travelersCount">0</div>
+                            <span class="stat-change positive">Travel enthusiasts</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Contributors</span>
+                                <i class="fas fa-edit stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="contributorsCount">0</div>
+                            <span class="stat-change positive">Content contributors</span>
+                        </div>
+                    </div>
+
                     <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">All Users</h3>
+                            <div class="card-actions">
+                                <select id="userRoleFilter" class="form-select">
+                                    <option value="">All Roles</option>
+                                    <option value="user">Users</option>
+                                    <option value="traveler">Travelers</option>
+                                    <option value="contributor">Contributors</option>
+                                    <option value="guide">Guides</option>
+                                </select>
+                                <select id="userStatusFilter" class="form-select">
+                                    <option value="">All Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                                <input type="text" id="searchUsers" class="form-input" placeholder="Search users...">
+                                <button class="btn btn-primary" onclick="loadUsersData()">
+                                    <i class="fas fa-sync-alt"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
                         <div class="card-content">
                             <p>User management functionality will be loaded here.</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Live Chat Page -->
                 <div id="chatPage" class="page hidden">
+                   
+                      
                     <div class="page-header">
-                        <h1 class="page-title">Live Chat</h1>
+                        <h1 class="page-title">Live Chat Support</h1>
                         <p class="page-description">Manage real-time conversations with visitors</p>
+                        <div class="chat-stats">
+                            <span class="chat-stat">
+                                <i class="fas fa-comments"></i>
+                                Active Chats: <strong id="activeChatCount">0</strong>
+                            </span>
+                            <span class="chat-stat">
+                                <i class="fas fa-clock"></i>
+                                Avg Response: <strong>2m 15s</strong>
+                            </span>
+                        </div>
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <p>Chat functionality will be loaded here.</p>
+
+                    <div class="chat-container">
+                        <!-- Chat List -->
+                        <div class="chat-sidebar">
+                            <div class="chat-sidebar-header">
+                                <h3>Active Conversations</h3>
+                                <button class="btn btn-sm btn-primary" onclick="refreshChatList()">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                            <div class="chat-list" id="chatList">
+                                <!-- Chat conversations will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Chat Window -->
+                        <div class="chat-main">
+                            <div class="chat-welcome" id="chatWelcome">
+                                <div class="welcome-content">
+                                    <i class="fas fa-comments"></i>
+                                    <h3>Welcome to Live Chat</h3>
+                                    <p>Select a conversation from the sidebar to start helping visitors</p>
+                                </div>
+                            </div>
+
+                            <div class="chat-window" id="chatWindow" style="display: none;">
+                                <div class="chat-header" id="chatHeader">
+                                    <!-- Chat header will be populated -->
+                                </div>
+
+                                <div class="chat-messages" id="chatMessages">
+                                    <!-- Messages will be loaded here -->
+                                </div>
+
+                                <div class="chat-input-container">
+                                    <div class="chat-input-wrapper">
+                                        <input type="text" id="chatInput" class="chat-input"
+                                            placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                                        <button class="btn btn-primary" onclick="sendChatMessage()">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                    <div class="chat-actions">
+                                        <button class="btn btn-sm btn-secondary"
+                                            onclick="sendQuickReply('Thank you for contacting us!')">
+                                            Quick Reply
+                                        </button>
+                                        <button class="btn btn-sm btn-warning" onclick="transferChat()">
+                                            Transfer
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" onclick="endChat()">
+                                            End Chat
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Reviews Page -->
                 <div id="reviewsPage" class="page hidden">
                     <div class="page-header">
                         <h1 class="page-title">Reviews Management</h1>
@@ -461,14 +671,299 @@
                     </div>
                 </div>
 
+                <!-- Admin Management Page -->
+                <div id="adminManagePage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Admin Management</h1>
+                        <p class="page-description">Manage admin accounts and applications (Super Admin Only)</p>
+                    </div>
+                    <div class="tab-buttons mb-4">
+                        <button class="btn btn-outline" onclick="setAdminTab('pending')">
+                            Pending <span id="pendingCount" class="badge badge-warning">0</span>
+                        </button>
+                        <button class="btn btn-outline" onclick="setAdminTab('verified')">
+                            Verified <span id="verifiedCount" class="badge badge-success">0</span>
+                        </button>
+                        <button class="btn btn-outline" onclick="setAdminTab('all')">
+                            All <span id="allCount" class="badge badge-secondary">0</span>
+                        </button>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Admin Details</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Applied Date</th>
+                                <th>Last Login</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTable">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Analytics Page -->
                 <div id="analyticsPage" class="page hidden">
                     <div class="page-header">
-                        <h1 class="page-title">Analytics</h1>
-                        <p class="page-description">View detailed analytics and reports</p>
+                        <h1 class="page-title">Analytics Dashboard</h1>
+                        <p class="page-description">Comprehensive insights and performance metrics</p>
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <p>Analytics functionality will be loaded here.</p>
+
+                    <!-- Analytics Stats Grid -->
+                    <div class="stats-grid mb-6">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Visitors</span>
+                                <i class="fas fa-eye stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="totalVisitors">12,847</div>
+                            <span class="stat-change positive">+15.3%</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Conversion Rate</span>
+                                <i class="fas fa-percentage stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="conversionRate">3.2%</div>
+                            <span class="stat-change positive">+0.8%</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Avg. Session</span>
+                                <i class="fas fa-clock stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="avgSession">4m 32s</div>
+                            <span class="stat-change negative">-12s</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Bounce Rate</span>
+                                <i class="fas fa-chart-line stat-icon"></i>
+                            </div>
+                            <div class="stat-value" id="bounceRate">24.5%</div>
+                            <span class="stat-change positive">-2.1%</span>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="grid grid-cols-3 gap-6 mb-6">
+                        <!-- User Distribution Chart -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">User Distribution</h3>
+                                <p class="card-description">By user type</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="userDistributionChart" width="300" height="300"></canvas>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background: #3b82f6;"></span>
+                                        <span>Travelers (68%)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background: #10b981;"></span>
+                                        <span>Guides (22%)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background: #f59e0b;"></span>
+                                        <span>Admins (10%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Popular Destinations -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Popular Destinations</h3>
+                                <p class="card-description">Most visited places</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="destinationsChart" width="300" height="300"></canvas>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background: #ef4444;"></span>
+                                        <span>Hundru Falls</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background: #8b5cf6;"></span>
+                                        <span>Betla National Park</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background: #06b6d4;"></span>
+                                        <span>Jagannath Temple</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background: #84cc16;"></span>
+                                        <span>Others</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Monthly Growth -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Monthly Growth</h3>
+                                <p class="card-description">User registrations</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="growthChart" width="300" height="300"></canvas>
+                                </div>
+                                <div class="growth-stats">
+                                    <div class="growth-item">
+                                        <span class="growth-label">This Month</span>
+                                        <span class="growth-value">+234 users</span>
+                                    </div>
+                                    <div class="growth-item">
+                                        <span class="growth-label">Growth Rate</span>
+                                        <span class="growth-value positive">+23.8%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Analytics -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <!-- Traffic Sources -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Traffic Sources</h3>
+                                <p class="card-description">Where visitors come from</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="traffic-list">
+                                    <div class="traffic-item">
+                                        <div class="traffic-source">
+                                            <i class="fab fa-google"></i>
+                                            <span>Google Search</span>
+                                        </div>
+                                        <div class="traffic-stats">
+                                            <span class="traffic-percentage">45.2%</span>
+                                            <div class="traffic-bar">
+                                                <div class="traffic-fill" style="width: 45.2%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="traffic-item">
+                                        <div class="traffic-source">
+                                            <i class="fas fa-link"></i>
+                                            <span>Direct</span>
+                                        </div>
+                                        <div class="traffic-stats">
+                                            <span class="traffic-percentage">28.7%</span>
+                                            <div class="traffic-bar">
+                                                <div class="traffic-fill" style="width: 28.7%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="traffic-item">
+                                        <div class="traffic-source">
+                                            <i class="fab fa-facebook"></i>
+                                            <span>Social Media</span>
+                                        </div>
+                                        <div class="traffic-stats">
+                                            <span class="traffic-percentage">16.8%</span>
+                                            <div class="traffic-bar">
+                                                <div class="traffic-fill" style="width: 16.8%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="traffic-item">
+                                        <div class="traffic-source">
+                                            <i class="fas fa-envelope"></i>
+                                            <span>Email</span>
+                                        </div>
+                                        <div class="traffic-stats">
+                                            <span class="traffic-percentage">9.3%</span>
+                                            <div class="traffic-bar">
+                                                <div class="traffic-fill" style="width: 9.3%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity Timeline -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Activity Timeline</h3>
+                                <p class="card-description">Recent system activities</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="timeline" id="activityTimeline">
+                                    <!-- Timeline items will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div id="settingsPage" class="page hidden">
+                    <div class="page-header">
+                        <h1 class="page-title">Settings</h1>
+                        <p class="page-description">Configure system settings and preferences</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">General Settings</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="form-group">
+                                    <label class="form-label">Site Title</label>
+                                    <input type="text" class="form-input" value="Explore Jharkhand" id="siteTitle">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Contact Email</label>
+                                    <input type="email" class="form-input" value="admin@explorejharkhand.com"
+                                        id="contactEmail">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Site Description</label>
+                                    <textarea class="form-input" rows="3"
+                                        id="siteDescription">Discover the hidden gems of Jharkhand with our comprehensive travel guide.</textarea>
+                                </div>
+                                <button class="btn btn-primary" onclick="saveGeneralSettings()">Save Changes</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Security Settings</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <input type="checkbox" checked id="emailNotifications"> Email Notifications
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <input type="checkbox" checked id="autoBackup"> Auto-backup Database
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <input type="checkbox" id="maintenanceMode"> Maintenance Mode
+                                    </label>
+                                </div>
+                                <button class="btn btn-primary" onclick="saveSecuritySettings()">Update
+                                    Security</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -476,10 +971,64 @@
         </div>
     </div>
 
+    <!-- Add Attraction Modal -->
+    <div id="addAttractionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Attraction</h3>
+                <button class="modal-close" onclick="closeAddAttractionModal()">&times;</button>
+            </div>
+            <form id="addAttractionForm" class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="attractionName">Attraction Name</label>
+                        <input type="text" id="attractionName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attractionCategory">Category</label>
+                        <select id="attractionCategory" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="waterfall">Waterfall</option>
+                            <option value="temple">Temple</option>
+                            <option value="park">National Park</option>
+                            <option value="hill">Hill Station</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="attractionDescription">Description</label>
+                    <textarea id="attractionDescription" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="attractionLocation">Location</label>
+                        <input type="text" id="attractionLocation" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attractionDistance">Distance from City (km)</label>
+                        <input type="number" id="attractionDistance" name="distance" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="attractionImage">Image URL</label>
+                    <input type="url" id="attractionImage" name="image">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddAttractionModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Attraction</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Custom Alert -->
     <div id="custom-alert" class="custom-alert hidden">
         <span id="alert-message"></span>
     </div>
+    <div id="chatNotificationBell" class="chat-notification-bell" style="position:relative; cursor:pointer;">
+        <i class="fas fa-comment-dots"></i>
+        <span id="chatBadge" class="notification-badge" style="position:absolute;top:-5px;right:-5px;background:red;color:white;border-radius:50%;padding:2px 6px;font-size:12px;display:none;">1</span>
+      </div>
 
     <!-- Load Socket.IO from CDN -->
     <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>

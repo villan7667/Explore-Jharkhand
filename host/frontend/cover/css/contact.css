@@ -143,7 +143,6 @@ body {
     max-width: 48rem;
     margin: 0 auto;
 }
-
 /* Contact Section */
 .contact-section {
     margin-bottom: 4rem;
@@ -153,7 +152,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: stretch;
+    /* Make both columns equal height */
 }
 
 .form-card,
@@ -164,6 +164,10 @@ body {
     box-shadow: var(--shadow-xl);
     border: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100%;
 }
 
 .form-header,
@@ -184,9 +188,22 @@ body {
 .map-header p {
     color: var(--text-secondary);
 }
-
 .contact-form {
     padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex: 1 1 auto;
+}
+
+.form-card,
+.map-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex: 1 1 auto;
 }
 
 .form-row {
@@ -232,6 +249,9 @@ body {
 /* Map Section */
 .map-card {
     padding: 2rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .map-iframe {
@@ -239,6 +259,7 @@ body {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    flex: 1 1 auto;
 }
 
 .location-info {
@@ -248,8 +269,9 @@ body {
 
 .info-item {
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 0.5rem;
     padding: 1rem;
     background: var(--bg-accent);
     border-radius: var(--radius-lg);
@@ -258,7 +280,7 @@ body {
 .info-item i {
     color: var(--primary-color);
     font-size: 1.25rem;
-    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .info-item h4 {
@@ -270,6 +292,13 @@ body {
 .info-item p {
     color: var(--text-secondary);
     font-size: 0.875rem;
+}
+
+/* Make contact-grid children equal height */
+.contact-grid > * {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Success Message */
@@ -373,149 +402,6 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Tourist Guides */
-.tourist-guides {
-    margin-bottom: 4rem;
-}
-
-.guides-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.guide-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: var(--radius-xl);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-lg);
-    transition: all 0.3s ease;
-    border: 0;
-    overflow: hidden;
-}
-
-.guide-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    background: rgba(255, 255, 255, 0.95);
-}
-
-.guide-avatar {
-    position: relative;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.guide-avatar img {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid rgba(16, 185, 129, 0.1);
-    background: white;
-}
-
-.guide-verified {
-    position: absolute;
-    top: -0.25rem;
-    right: calc(50% - 3.25rem);
-    background: #3b82f6;
-    border-radius: 50%;
-    padding: 0.25rem;
-    color: white;
-    font-size: 0.75rem;
-}
-
-.guide-info {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.guide-name {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.guide-rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.25rem;
-    margin-bottom: 0.75rem;
-}
-
-.guide-rating i {
-    color: #fbbf24;
-}
-
-.guide-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.badge {
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.badge.verified {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-}
-
-.badge.trusted {
-    background: rgba(251, 191, 36, 0.1);
-    color: #f59e0b;
-}
-
-.guide-details {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.guide-detail {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.guide-detail i {
-    color: var(--primary-color);
-    width: 1rem;
-}
-
-.guide-description {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.guide-actions {
-    display: grid;
-    gap: 0.5rem;
-}
-
-.guides-actions {
-    text-align: center;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
 
 /* FAQ Section */
 .faq-section {
@@ -769,72 +655,6 @@ body {
         padding: 2rem 1rem;
     }
 }
-/* Button Components */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: var(--radius-md);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover:not(:disabled) {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover:not(:disabled) {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-white {
-    background: white;
-    color: var(--primary-color);
-}
-
-.btn-white:hover:not(:disabled) {
-    background: #f9fafb;
-}
-
-.btn-full {
-    width: 100%;
-}
-
-.btn-lg {
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
-}
-
-.btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-}
 
 /* Loading Spinner */
 .spinner {
@@ -937,6 +757,7 @@ body {
     font-size: 0.875rem;
 }
 
+
 /* Chat Widget */
 .chat-widget {
     position: fixed;
@@ -945,6 +766,16 @@ body {
     z-index: 1000;
 }
 
+.btn btn-primary btn-full {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
 .chat-button {
     width: 3.5rem;
     height: 3.5rem;
@@ -959,6 +790,7 @@ body {
     justify-content: center;
     font-size: 1.5rem;
     transition: all 0.3s ease;
+    
 }
 
 .chat-button:hover {
