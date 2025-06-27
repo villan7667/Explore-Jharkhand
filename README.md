@@ -1,4 +1,4 @@
-<h1 align="center">🌄 Explore Jharkhand</h1>
+<h1 align="center">Explore Jharkhand</h1>
 
 <p align="center"><strong>Discover. Explore. Experience Jharkhand with our full-stack tourism platform.</strong></p>
 
@@ -32,13 +32,13 @@
   </tr>
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/efab0759-0e32-4ab9-9d0a-41ecc17f751d" width="95%" height="180px" />
+      <img src="https://github.com/user-attachments/assets/1b17c33a-8562-4c52-bbd2-288737111f8c" width="95%" height="180px" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/15e5d5e5-2400-424f-8d93-2205ff9e1751" width="95%" height="180px" />
+      <img src="https://github.com/user-attachments/assets/e0bd41cc-a0ff-4528-9d00-7fbb7328ae2d" width="95%" height="180px" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/cb6e40f0-0680-435f-a7aa-c158f1b54621" width="95%" height="180px" />
+      <img src="https://github.com/user-attachments/assets/22a11c0b-3871-496c-a411-aec4c3be9b7f" width="95%" height="180px" />
     </td>
   </tr>
 </table>
